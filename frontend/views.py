@@ -14,7 +14,7 @@ def index(request):
 def materiales(request):
     context = {
         'page': _('materiales'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/materiales.html', context)
 
@@ -22,7 +22,7 @@ def materiales(request):
 def energia(request):
     context = {
         'page': _('energía'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/energia.html', context)
 
@@ -30,7 +30,7 @@ def energia(request):
 def agua_afluentes(request):
     context = {
         'page': _('agua y afluentes'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/agua_afluentes.html', context)
 
@@ -38,7 +38,7 @@ def agua_afluentes(request):
 def emisiones(request):
     context = {
         'page': _('emisiones'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/emisiones.html', context)
 
@@ -46,7 +46,7 @@ def emisiones(request):
 def residuos(request):
     context = {
         'page': _('residuos'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/residuos.html', context)
 
@@ -54,7 +54,7 @@ def residuos(request):
 def analisis_riesgo(request):
     context = {
         'page': _('Análisis de riesgos (climático y sistémico)'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/analisis_riesgo.html', context)
 
@@ -62,7 +62,7 @@ def analisis_riesgo(request):
 def etica_anticorrupcion(request):
     context = {
         'page': _('etica y anticorrupcion'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/etica_anticorrupcion.html', context)
 
@@ -70,7 +70,7 @@ def etica_anticorrupcion(request):
 def gobierno_corporativo(request):
     context = {
         'page': _('gobierno corporativo'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/gobierno_corporativo.html', context)
 
@@ -78,7 +78,7 @@ def gobierno_corporativo(request):
 def productos_calidad(request):
     context = {
         'page': _('productos de calidad'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/productos_calidad.html', context)
 
@@ -86,7 +86,7 @@ def productos_calidad(request):
 def salud_seguridad(request):
     context = {
         'page': _('salud y seguridad de los empleados'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/salud_seguridad.html', context)
 
@@ -94,7 +94,7 @@ def salud_seguridad(request):
 def capacitacion(request):
     context = {
         'page': _('capacitación'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/capacitacion.html', context)
 
@@ -102,7 +102,7 @@ def capacitacion(request):
 def equidad_genero(request):
     context = {
         'page': _('equidad de género y diversidad'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/equidad_genero.html', context)
 
@@ -110,7 +110,7 @@ def equidad_genero(request):
 def relacion_clientes(request):
     context = {
         'page': _('relación con clientes y comunidades'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/relacion_clientes.html', context)
 
@@ -118,9 +118,10 @@ def relacion_clientes(request):
 def ciberseguridad(request):
     context = {
         'page': _('ciberseguridad'),
-        'section':'medio ambiente'
+        'section': 'medio ambiente'
     }
     return render(request, 'frontend/ciberseguridad.html', context)
+
 
 ##################
 # Económicos
@@ -268,6 +269,14 @@ def maquinaria_averiada(request):
 ##############
 
 
+def consumo_agua(request):
+    context = {
+        'page': _('consumo_agua'),
+        'section': _('ambientales')
+    }
+    return render(request, 'frontend/ambientales/consumo_agua.html', context)
+
+
 def consumo_energetico(request):
     context = {
         'page': _('consumo_energetico'),
@@ -292,8 +301,16 @@ def reduccion_consumo_energia(request):
     return render(request, 'frontend/ambientales/reduccion_consumo_energia.html', context)
 
 
+def indice_despercicios(request):
+    context = {
+        'page': _('indice_despercicios'),
+        'section': _('ambientales')
+    }
+    return render(request, 'frontend/ambientales/indice_despercicios.html', context)
+
+
 #############################
-#sociales
+# sociales
 #############################
 
 
@@ -312,8 +329,9 @@ def empleados_sindicato(request):
     }
     return render(request, 'frontend/sociales/empleados_sindicato.html', context)
 
+
 #############################
-#gobierno_corporativo
+# gobierno_corporativo
 #############################
 
 

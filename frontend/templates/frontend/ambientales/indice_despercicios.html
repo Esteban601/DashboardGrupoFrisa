@@ -26,7 +26,7 @@
             var chart5 = AmCharts.makeChart("chart5", {
                 "titles": [
                     {
-                        "text": "Reducción del consumo de energía (estimado).",
+                        "text": "Índice de Desperdicios.",
                         "size": 16,
                         "color": "#000000"
                     },
@@ -49,19 +49,19 @@
                 "dataProvider": [
                     {
                         "year": "2019",
-                        "percent": 50,
+                        "percent": 10,
                     },
                     {
                         "year": "2020",
-                        "percent": 80,
+                        "percent": 11,
                     },
                     {
                         "year": "2021",
-                        "percent": 90,
+                        "percent": 15,
                     },
                     {
                         "year": "2022",
-                        "percent": 100,
+                        "percent": 12,
                     }
                 ],
                 "valueAxes": [{
@@ -73,12 +73,12 @@
                 }],
                 "startDuration": 1,
                 "graphs": [{
-                    "balloonText": "<span style='font-size:15px;'>[[value]]</span>",
+                    "balloonText": "<span style='font-size:15px;'>[[value]]%</span>",
                     "fillAlphas": 1,
                     "title": "Efectivo / Activos Totales",
                     "type": "column",
                     "valueField": "percent",
-                    "labelText": "[[value]]"
+                    "labelText": "[[value]]%"
                 }],
                 "categoryField": "year",
                 "categoryAxis": {

@@ -47,15 +47,15 @@
                     <div class="navbar-header">
                         <!-- Navbar Brand -->
                         <a class="navbar-brand d-none d-sm-inline-block" href="index.html">
-                        <div class="brand-text d-none d-lg-inline-block">
+                            <div class="brand-text d-none d-lg-inline-block">
                             <span>ESG <strong>Dashboard</strong>
                         </span>
-                        </div>
-                        <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div>
-                    </a>
+                            </div>
+                            <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div>
+                        </a>
                         <!-- Toggle Button-->
                         <a class="menu-btn active" id="toggle-btn"
-                                                href="#"><span></span><span></span><span></span></a>
+                           href="#"><span></span><span></span><span></span></a>
                     </div>
 
                     </ul>
@@ -214,6 +214,11 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                         </svg>
                         Ambientales</a>
                     <ul class="collapse list-unstyled collapse" id="ambientalesdropdownDropdown">
+                        <li class="{% if page == _('consumo_agua') %}active{% endif %}">
+                            <a class="sidebar-link" href="{% url 'consumo_agua' %}">
+                                Consumo de agua
+                            </a>
+                        </li>
                         <li class="{% if page == _('consumo_energetico') %}active{% endif %}">
                             <a class="sidebar-link" href="{% url 'consumo_energetico' %}">
                                 Consumo energético
@@ -221,12 +226,17 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                         </li>
                         <li class="{% if page == _('consumo_energia_renobable') %}active{% endif %}">
                             <a class="sidebar-link" href="{% url 'consumo_energia_renobable' %}">
-                                Producción y consumo de energía renovable
+                                Producción y consumo de energía renovable (estimado)
                             </a>
                         </li>
                         <li class="{% if page == _('reduccion_consumo_energia') %}active{% endif %}">
                             <a class="sidebar-link" href="{% url 'reduccion_consumo_energia' %}">
                                 Reducción del consumo de energía (estimado)
+                            </a>
+                        </li>
+                        <li class="{% if page == _('indice_despercicios') %}active{% endif %}">
+                            <a class="sidebar-link" href="{% url 'indice_despercicios' %}">
+                                Índice de Desperdicios
                             </a>
                         </li>
                     </ul>
@@ -322,7 +332,8 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                     </ul>
                 </li>
 
-                <!--                <li class="sidebar-item  {% if section == _('medio ambiente') %}active{% endif %}">-->
+                <!--                <li class="sidebar-item  {% if section == _('medio ambiente') %}
+                    active{% endif %}">-->
                 <!--                    <a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse"-->
                 <!--                       aria-expanded="true">-->
                 <!--                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"-->
@@ -344,45 +355,59 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                 <!--                        </svg>-->
                 <!--                        Medio ambiente</a>-->
                 <!--                    <ul class="collapse list-unstyled collapse show" id="exampledropdownDropdown">-->
-                <!--                        <li class="{% if page == _('materiales') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('materiales') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                      href="{% url 'materiales' %}">Materiales</a>-->
                 <!--                        </li>-->
-                <!--                        <li class="{% if page == _('energía') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('energía') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                   href="{% url 'energia' %}">Energía</a>-->
                 <!--                        </li>-->
-                <!--                        <li class="{% if page == _('emisiones') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('emisiones') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                     href="{% url 'emisiones' %}">Emisiones</a>-->
                 <!--                        </li>-->
-                <!--                        <li class="{% if page == _('agua y afluentes') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('agua y afluentes') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                            href="{% url 'agua_afluentes' %}">Agua-->
                 <!--                            y afluentes</a></li>-->
-                <!--                        <li class="{% if page == _('residuos') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('residuos') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                    href="{% url 'residuos' %}">Residuos</a>-->
                 <!--                        </li>-->
-                <!--                        <li class="{% if page == _('etica y anticorrupcion') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('etica y anticorrupcion') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                                  href="{% url 'etica_anticorrupcion' %}">Ética-->
                 <!--                            y Anticorrupción</a></li>-->
-                <!--                        <li class="{% if page == _('gobierno corporativo') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('gobierno corporativo') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                                href="{% url 'gobierno_corporativo' %}">Gobierno-->
                 <!--                            corporativo</a></li>-->
-                <!--                        <li class="{% if page == _('analisis de riesgo') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('analisis de riesgo') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                              href="{% url 'analisis_riesgo' %}">Análisis-->
                 <!--                            de riesgos</a></li>-->
-                <!--                        <li class="{% if page == _('productos de calidad') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('productos de calidad') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                                href="{% url 'productos_calidad' %}">Productos-->
                 <!--                            de calidad</a></li>-->
-                <!--                        <li class="{% if page == _('salud y seguridad de los empleados') %}active{% endif %}"><a-->
+                <!--                        <li class="{% if page == _('salud y seguridad de los empleados') %}
+                    active{% endif %}"><a-->
                 <!--                                class="sidebar-link" href="{% url 'salud_seguridad' %}">Salud y seguridad</a></li>-->
-                <!--                        <li class="{% if page == _('capacitacion') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('capacitacion') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                        href="{% url 'capacitacion' %}">Capacitación</a>-->
                 <!--                        </li>-->
-                <!--                        <li class="{% if page == _('equidad de genero') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('equidad de genero') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                             href="{% url 'equidad_genero' %}">Equidad-->
                 <!--                            de género </a></li>-->
-                <!--                        <li class="{% if page == _('relacion con clientes') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('relacion con clientes') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                                 href="{% url 'relacion_clientes' %}">Relación-->
                 <!--                            con clientes </a></li>-->
-                <!--                        <li class="{% if page == _('ciberseguridad') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('ciberseguridad') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                          href="{% url 'ciberseguridad' %}">Ciberseguridad </a>-->
                 <!--                        </li>-->
                 <!--                    </ul>-->
@@ -411,45 +436,59 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                 <!--                        </svg>-->
                 <!--                        Social</a>-->
                 <!--                    <ul class="collapse list-unstyled collapse show" id="socialdropdownDropdown">-->
-                <!--                        <li class="{% if page == _('materiales') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('materiales') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                      href="{% url 'materiales' %}">Materiales</a>-->
                 <!--                        </li>-->
-                <!--                        <li class="{% if page == _('energía') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('energía') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                   href="{% url 'energia' %}">Energía</a>-->
                 <!--                        </li>-->
-                <!--                        <li class="{% if page == _('emisiones') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('emisiones') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                     href="{% url 'emisiones' %}">Emisiones</a>-->
                 <!--                        </li>-->
-                <!--                        <li class="{% if page == _('agua y afluentes') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('agua y afluentes') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                            href="{% url 'agua_afluentes' %}">Agua-->
                 <!--                            y afluentes</a></li>-->
-                <!--                        <li class="{% if page == _('residuos') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('residuos') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                    href="{% url 'residuos' %}">Residuos</a>-->
                 <!--                        </li>-->
-                <!--                        <li class="{% if page == _('etica y anticorrupcion') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('etica y anticorrupcion') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                                  href="{% url 'etica_anticorrupcion' %}">Ética-->
                 <!--                            y Anticorrupción</a></li>-->
-                <!--                        <li class="{% if page == _('gobierno corporativo') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('gobierno corporativo') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                                href="{% url 'gobierno_corporativo' %}">Gobierno-->
                 <!--                            corporativo</a></li>-->
-                <!--                        <li class="{% if page == _('analisis de riesgo') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('analisis de riesgo') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                              href="{% url 'analisis_riesgo' %}">Análisis-->
                 <!--                            de riesgos</a></li>-->
-                <!--                        <li class="{% if page == _('productos de calidad') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('productos de calidad') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                                href="{% url 'productos_calidad' %}">Productos-->
                 <!--                            de calidad</a></li>-->
-                <!--                        <li class="{% if page == _('salud y seguridad de los empleados') %}active{% endif %}"><a-->
+                <!--                        <li class="{% if page == _('salud y seguridad de los empleados') %}
+                    active{% endif %}"><a-->
                 <!--                                class="sidebar-link" href="{% url 'salud_seguridad' %}">Salud y seguridad</a></li>-->
-                <!--                        <li class="{% if page == _('capacitacion') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('capacitacion') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                        href="{% url 'capacitacion' %}">Capacitación</a>-->
                 <!--                        </li>-->
-                <!--                        <li class="{% if page == _('equidad de genero') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('equidad de genero') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                             href="{% url 'equidad_genero' %}">Equidad-->
                 <!--                            de género </a></li>-->
-                <!--                        <li class="{% if page == _('relacion con clientes') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('relacion con clientes') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                                 href="{% url 'relacion_clientes' %}">Relación-->
                 <!--                            con clientes </a></li>-->
-                <!--                        <li class="{% if page == _('ciberseguridad') %}active{% endif %}"><a class="sidebar-link"-->
+                <!--                        <li class="{% if page == _('ciberseguridad') %}
+                    active{% endif %}"><a class="sidebar-link"-->
                 <!--                                                                                          href="{% url 'ciberseguridad' %}">Ciberseguridad </a>-->
                 <!--                        </li>-->
                 <!--                    </ul>-->
@@ -507,126 +546,131 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                                                id="navbarDropdownMenuLinkSeccion" role="button"
                                                data-bs-toggle="dropdown" aria-expanded="false">Categoría</a>
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkSeccion">
-                                                {% if page != _('ingresos')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'ingresos' %}">
-                                                        Desglose de ingresos
-                                                    </a>
-                                                </li>
+                                                {% if page != _('ingresos') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'ingresos' %}">
+                                                            Desglose de ingresos
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('costos')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'costos' %}">
-                                                        Desglose de costos
-                                                    </a>
-                                                </li>
+                                                {% if page != _('costos') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'costos' %}">
+                                                            Desglose de costos
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('operacion')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'operacion' %}">
-                                                        Gastos de operación
-                                                    </a>
-                                                </li>
+                                                {% if page != _('operacion') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'operacion' %}">
+                                                            Gastos de operación
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('financieros')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'financieros' %}">
-                                                        Gastos financieros
-                                                    </a>
-                                                </li>
+                                                {% if page != _('financieros') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'financieros' %}">
+                                                            Gastos financieros
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('impuestos_utilidad')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'impuestos_utilidad' %}">
-                                                        Impuestos a la utilidad
-                                                    </a>
-                                                </li>
+                                                {% if page != _('impuestos_utilidad') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'impuestos_utilidad' %}">
+                                                            Impuestos a la utilidad
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('dividendos_pagados')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'dividendos_pagados' %}">
-                                                        Dividendos pagados
-                                                    </a>
-                                                </li>
+                                                {% if page != _('dividendos_pagados') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'dividendos_pagados' %}">
+                                                            Dividendos pagados
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('utilidad_neta')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'utilidad_neta' %}">
-                                                        Utilidad neta
-                                                    </a>
-                                                </li>
+                                                {% if page != _('utilidad_neta') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'utilidad_neta' %}">
+                                                            Utilidad neta
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('salario_min')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'salario_min' %}">
-                                                        Ratio de salario mínimo</br>
-                                                        entre hombres y mujeres
-                                                    </a>
-                                                </li>
+                                                {% if page != _('salario_min') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'salario_min' %}">
+                                                            Ratio de salario mínimo</br>
+                                                            entre hombres y mujeres
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('obligaciones_laborales')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'obligaciones_laborales' %}">
-                                                        Obligaciones laborales al retiro
-                                                    </a>
-                                                </li>
+                                                {% if page != _('obligaciones_laborales') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link"
+                                                           href="{% url 'obligaciones_laborales' %}">
+                                                            Obligaciones laborales al retiro
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('inversion_proyecto')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'inversion_proyecto' %}">
-                                                        Inversión por proyecto
-                                                    </a>
-                                                </li>
+                                                {% if page != _('inversion_proyecto') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'inversion_proyecto' %}">
+                                                            Inversión por proyecto
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('inversiones_comunitarias')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'inversiones_comunitarias' %}">
-                                                        Inversiones comunitarias
-                                                    </a>
-                                                </li>
+                                                {% if page != _('inversiones_comunitarias') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link"
+                                                           href="{% url 'inversiones_comunitarias' %}">
+                                                            Inversiones comunitarias
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('ejecutivos_contratados')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'ejecutivos_contratados' %}">
-                                                        Altos ejecutivos y mandos medios </br>
-                                                        contratados en la comunidad local
-                                                    </a>
-                                                </li>
+                                                {% if page != _('ejecutivos_contratados') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link"
+                                                           href="{% url 'ejecutivos_contratados' %}">
+                                                            Altos ejecutivos y mandos medios </br>
+                                                            contratados en la comunidad local
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('inversion_ausencias')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'inversion_ausencias' %}">
-                                                        Inversión por ausencias
-                                                    </a>
-                                                </li>
+                                                {% if page != _('inversion_ausencias') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'inversion_ausencias' %}">
+                                                            Inversión por ausencias
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('inversion_prestaciones')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'inversion_prestaciones' %}">
-                                                        Inversión por prestaciones
-                                                    </a>
-                                                </li>
+                                                {% if page != _('inversion_prestaciones') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link"
+                                                           href="{% url 'inversion_prestaciones' %}">
+                                                            Inversión por prestaciones
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('invertido_iniciativas')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'invertido_iniciativas' %}">
-                                                        Total invertido en iniciativas
-                                                    </a>
-                                                </li>
+                                                {% if page != _('invertido_iniciativas') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link"
+                                                           href="{% url 'invertido_iniciativas' %}">
+                                                            Total invertido en iniciativas
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('perdidas_demandas')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'perdidas_demandas' %}">
-                                                        Total perdido en demandas
-                                                    </a>
-                                                </li>
+                                                {% if page != _('perdidas_demandas') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'perdidas_demandas' %}">
+                                                            Total perdido en demandas
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
-                                                {% if page != _('maquinaria_averiada')%}
-                                                <li class="active">
-                                                    <a class="sidebar-link" href="{% url 'maquinaria_averiada' %}">
-                                                        Maquinaria averiada
-                                                    </a>
-                                                </li>
+                                                {% if page != _('maquinaria_averiada') %}
+                                                    <li class="active">
+                                                        <a class="sidebar-link" href="{% url 'maquinaria_averiada' %}">
+                                                            Maquinaria averiada
+                                                        </a>
+                                                    </li>
                                                 {% endif %}
                                             </ul>
                                     </ul>
@@ -640,7 +684,7 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
             <section class="pb-0">
                 <div class="container-fluid">
                     <div class="card mb-1 p-4">
-                        <h1 class="text-capitalize mb-2">{{ page }}</h1>
+                        <h1 class="mb-2">{{ page }}</h1>
                         <h2 class="text-capitalize">{{ section }}</h2>
                         <!--                        <h2 class="text-capitalize">{% trans section %}</h2>-->
                         <!--                        <h2 class="text-capitalize">{% trans  page %}</h2>-->
@@ -702,7 +746,8 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
     // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
     // while using file:// protocol
     // pls don't forget to change to your domain :)
-    injectSvgSprite('{% static '
+    injectSvgSprite('
+    {% static '
     img / orion - svg - sprite.svg
     ' %}'
     )
