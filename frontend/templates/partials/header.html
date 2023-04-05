@@ -50,13 +50,13 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-            <div class="brand-text d-none d-lg-inline-block">
+                <div class="brand-text d-none d-lg-inline-block">
                             <span>ESG <strong>Dashboard</strong>
                         </span>
-            </div>
-        </a>
-        <a class="menu-btn active" id="toggle-btn"
-           href="#"><span></span><span></span><span></span></a>
+                </div>
+            </a>
+            <a class="menu-btn active" id="toggle-btn"
+               href="#"><span></span><span></span><span></span></a>
         </div>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01"
@@ -182,9 +182,17 @@
                            href="{% url 'empleados_funcion' %}">
                             Número de empleados, desglose por función
                         </a>
+                        <a class="dropdown-item {% if page == _('satisfaccion_empleados') %}disabled{% endif %}"
+                           href="{% url 'satisfaccion_empleados' %}">
+                            Satisfación de los empleados
+                        </a>
                         <a class="dropdown-item {% if page == _('empleados_sindicato') %}disabled{% endif %}"
                            href="{% url 'empleados_sindicato' %}">
                             Porcentaje de empleados afiliados a sindicatos
+                        </a>
+                        <a class="dropdown-item {% if page == _('accidentes_laborales') %}disabled{% endif %}"
+                           href="{% url 'accidentes_laborales' %}">
+                            Número de Accidentes Laborales
                         </a>
                     </div>
                 </li>

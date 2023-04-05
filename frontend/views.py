@@ -322,12 +322,28 @@ def empleados_funcion(request):
     return render(request, 'frontend/sociales/empleados_funcion.html', context)
 
 
+def satisfaccion_empleados(request):
+    context = {
+        'page': _('satisfaccion_empleados'),
+        'section': _('sociales')
+    }
+    return render(request, 'frontend/sociales/satisfaccion_empleados.html', context)
+
+
 def empleados_sindicato(request):
     context = {
         'page': _('empleados_sindicato'),
         'section': _('sociales')
     }
     return render(request, 'frontend/sociales/empleados_sindicato.html', context)
+
+
+def accidentes_laborales(request):
+    context = {
+        'page': _('accidentes_laborales'),
+        'section': _('sociales')
+    }
+    return render(request, 'frontend/sociales/accidentes_laborales.html', context)
 
 
 #############################
