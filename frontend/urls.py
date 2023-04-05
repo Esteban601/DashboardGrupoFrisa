@@ -43,7 +43,9 @@ urlpatterns = [
         path('reduccion_consumo_energia', views.reduccion_consumo_energia, name='reduccion_consumo_energia'),
 
         path('empleados_funcion', views.empleados_funcion, name='empleados_funcion'),
+        path('satisfaccion_empleados', views.satisfaccion_empleados, name='satisfaccion_empleados'),
         path('empleados_sindicato', views.empleados_sindicato, name='empleados_sindicato'),
+        path('accidentes_laborales', views.accidentes_laborales, name='accidentes_laborales'),
 
         path('accionistas_mayoritarios', views.accionistas_mayoritarios, name='accionistas_mayoritarios'),
         path('consejo_admon', views.consejo_admon, name='consejo_admon'),

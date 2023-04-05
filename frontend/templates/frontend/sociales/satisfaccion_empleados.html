@@ -26,7 +26,7 @@
         var chart5 = AmCharts.makeChart("chart5", {
             "titles": [
                 {
-                    "text": "Número de empleados, desglose por función.",
+                    "text": "Satisfación de los empleados.",
                     "size": 16,
                     "color": "#000000"
                 },
@@ -49,35 +49,35 @@
             "dataProvider": [
                 {
                     "year": 2019,
-                    "admon":  20,
-                    "operaciones":  1000,
-                    "construccion":  50,
-                    "directivos":  5,
-                    "total":  1075,
+                    "admon":  75,
+                    "operaciones": 200,
+                    "construccion":  300,
+                    "directivos":  400,
+                    "total":  100,
                 },
                 {
                     "year": 2020,
-                    "admon":  20,
-                    "operaciones":  1100,
-                    "construccion":  52,
-                    "directivos":  5,
-                    "total":  1177,
+                    "admon":  100,
+                    "operaciones":  300,
+                    "construccion":  500,
+                    "directivos":  350,
+                    "total":  100,
                 },
                 {
                     "year": 2021,
-                    "admon":  21,
-                    "operaciones":  1200,
-                    "construccion":  50,
-                    "directivos":  4,
-                    "total":  1275,
+                    "admon":  40,
+                    "operaciones":  150,
+                    "construccion":  300,
+                    "directivos":  500,
+                    "total":  200,
                 },
                 {
                     "year": 2022,
-                    "admon":  19,
-                    "operaciones":  1360,
-                    "construccion":  40,
-                    "directivos":  3,
-                    "total":  1422,
+                    "admon":  60,
+                    "operaciones":  170,
+                    "construccion":  300,
+                    "directivos":  400,
+                    "total":  300,
                 }
             ],
             "valueAxes": [{
@@ -91,7 +91,7 @@
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]",
                     "lineAlpha": 0.3,
-                    "title": "Administración",
+                    "title": "Muy insatisfecho",
                     "type": "column",
                     "color": "#000000",
                     "valueField": "admon"
@@ -101,7 +101,7 @@
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]",
                     "lineAlpha": 0.3,
-                    "title": "Operaciones",
+                    "title": "Insatisfecho",
                     "type": "column",
                     "color": "#000000",
                     "valueField": "operaciones"
@@ -111,7 +111,7 @@
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]",
                     "lineAlpha": 0.3,
-                    "title": "Construcción e ingeniería",
+                    "title": "Neutral",
                     "type": "column",
                     "color": "#000000",
                     "valueField": "construccion"
@@ -121,7 +121,7 @@
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]",
                     "lineAlpha": 0.3,
-                    "title": "Directivos relevantes",
+                    "title": "Satisfecho",
                     "type": "column",
                     "color": "#000000",
                     "valueField": "directivos"
@@ -131,7 +131,7 @@
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]",
                     "lineAlpha": 0.3,
-                    "title": "Total",
+                    "title": "Muy Satisfecho",
                     "type": "column",
                     "color": "#000000",
                     "valueField": "total"
