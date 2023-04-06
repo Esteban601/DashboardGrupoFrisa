@@ -367,7 +367,7 @@ msgstr "Sociales"
 
 #: frontend/templates/layauts/base_responsive.html:9
 msgid "site_title"
-msgstr ""
+msgstr "Grupo Frisa Dashboard ESG"
 
 #: frontend/views.py:9
 msgid "index"
