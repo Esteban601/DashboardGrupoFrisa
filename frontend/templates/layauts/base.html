@@ -127,11 +127,6 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                                 Impuestos a la utilidad
                             </a>
                         </li>
-                        <li class="{% if page == _('dividendos_pagados') %}active{% endif %}">
-                            <a class="sidebar-link" href="{% url 'dividendos_pagados' %}">
-                                Dividendos pagados
-                            </a>
-                        </li>
                         <li class="{% if page == _('utilidad_neta') %}active{% endif %}">
                             <a class="sidebar-link" href="{% url 'utilidad_neta' %}">
                                 Utilidad neta
@@ -578,13 +573,6 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                                                     <li class="active">
                                                         <a class="sidebar-link" href="{% url 'impuestos_utilidad' %}">
                                                             Impuestos a la utilidad
-                                                        </a>
-                                                    </li>
-                                                {% endif %}
-                                                {% if page != _('dividendos_pagados') %}
-                                                    <li class="active">
-                                                        <a class="sidebar-link" href="{% url 'dividendos_pagados' %}">
-                                                            Dividendos pagados
                                                         </a>
                                                     </li>
                                                 {% endif %}
