@@ -9,6 +9,9 @@
                         <div class="col-md-12 mb-6">
                                 <div class="chart" style="width:100%;height: 400px" id="chart5"></div>
                         </div>
+                        <div class="col-md-12 mb-6">
+                            <div class="chart" style="width:100%;height: 400px" id="chart5.2"></div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -26,7 +29,7 @@
         var chart5 = AmCharts.makeChart("chart5", {
             "titles": [
                 {
-                    "text": "Porcentaje de empleados afiliados a sindicatos.",
+                    "text": "Horas promedio de capacitación por colaborador",
                     "size": 16,
                     "color": "#000000"
                 },
@@ -39,7 +42,7 @@
             "type": "serial",
             "addClassNames": true,
             "theme": "none",
-            "colors": ["#1C5DA6", "#6298C2"],
+            "colors": ["#8EA043", "#6298C2"],
             "balloon": {
                 "adjustBorderColor": false,
                 "horizontalPadding": 10,
@@ -48,20 +51,16 @@
             },
             "dataProvider": [
                 {
-                "year": "2019",
-                "percent":     20,
-                },
-                {
-                "year": "2020",
-                "percent":     30,
-                },
-                {
-                "year": "2021",
-                "percent":     20,
-                },
-                {
                 "year": "2022",
                 "percent":     15,
+                },
+                {
+                "year": "2023",
+                "percent":     8,
+                },
+                {
+                "year": "2024",
+                "percent":     0,
                 }
             ],
             "valueAxes": [{
@@ -73,12 +72,12 @@
             }],
             "startDuration": 1,
             "graphs": [{
-                "balloonText": "<span style='font-size:15px;'>[[value]]%</span>",
+                "balloonText": "<span style='font-size:15px;'>[[value]]</span>",
                 "fillAlphas": 1,
                 "title": "Efectivo / Activos Totales",
                 "type": "column",
                 "valueField": "percent",
-                "labelText": "[[value]]%"
+                "labelText": "[[value]]"
             }],
             "categoryField": "year",
             "categoryAxis": {
@@ -92,7 +91,70 @@
             }
         });
 
-
+        var chart6 = AmCharts.makeChart("chart5.2", {
+            "titles": [
+                {
+                    "text": "Horas-Hombre de capacitación en Seguridad, Salud en el Trabajo y NOM 035",
+                    "size": 16,
+                    "color": "#000000"
+                },
+                 {
+                     "text": "",
+                     "size": 12
+                 }
+            ],
+            "fontSize": 14,
+            "type": "serial",
+            "addClassNames": true,
+            "theme": "none",
+            "colors": ["#FF7F34", "#6298C2"],
+            "balloon": {
+                "adjustBorderColor": false,
+                "horizontalPadding": 10,
+                "verticalPadding": 8,
+                "color": "#ffffff"
+            },
+            "dataProvider": [
+                {
+                "year": "2022",
+                "percent":     11962,
+                },
+                {
+                "year": "2023",
+                "percent":     5884,
+                },
+                {
+                "year": "2024",
+                "percent":     0,
+                }
+            ],
+            "valueAxes": [{
+                "axisAlpha": 0,
+                "position": "left",
+                "gridAlpha": 0,
+                "labelsEnabled": false,
+                "minimum": 0
+            }],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "<span style='font-size:15px;'>[[value]]</span>",
+                "fillAlphas": 1,
+                "title": "Efectivo / Activos Totales",
+                "type": "column",
+                "valueField": "percent",
+                "labelText": "[[value]]"
+            }],
+            "categoryField": "year",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "axisAlpha": .5,
+                "tickLength": 0,
+                "gridAlpha": 0
+            },
+            "export": {
+                "enabled": true
+            }
+        });
     });
     </script>
 {% endblock %}

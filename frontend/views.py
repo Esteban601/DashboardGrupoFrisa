@@ -268,29 +268,29 @@ def maquinaria_averiada(request):
 # Ambientales
 ##############
 
-
+#transicion_energetica
 def consumo_agua(request):
     context = {
-        'page': _('consumo_agua'),
+        'page': _('Transición energética'),
+        'section': _('ambientales')
+    }
+    return render(request, 'frontend/ambientales/transicion_energetica.html', context)
+
+#consumo_agua
+def consumo_energetico(request):
+    context = {
+        'page': _('Agua'),
         'section': _('ambientales')
     }
     return render(request, 'frontend/ambientales/consumo_agua.html', context)
 
-
-def consumo_energetico(request):
-    context = {
-        'page': _('consumo_energetico'),
-        'section': _('ambientales')
-    }
-    return render(request, 'frontend/ambientales/consumo_energetico.html', context)
-
-
+#desechos_desper
 def consumo_energia_renobable(request):
     context = {
-        'page': _('consumo_energia_renobable'),
+        'page': _('Desechos y desperdicios'),
         'section': _('ambientales')
     }
-    return render(request, 'frontend/ambientales/consumo_energia_renobable.html', context)
+    return render(request, 'frontend/ambientales/desechos_desperdicios.html', context)
 
 
 def reduccion_consumo_energia(request):
@@ -313,29 +313,29 @@ def indice_despercicios(request):
 # sociales
 #############################
 
-
+#atraccion_talento
 def empleados_funcion(request):
     context = {
-        'page': _('empleados_funcion'),
+        'page': _('Atracción y retención de talento'),
         'section': _('sociales')
     }
-    return render(request, 'frontend/sociales/empleados_funcion.html', context)
+    return render(request, 'frontend/sociales/atraccion_talento.html', context)
 
-
+#diversidad_empleados
 def satisfaccion_empleados(request):
     context = {
-        'page': _('satisfaccion_empleados'),
+        'page': _('Diversidad, equidad e inclusión'),
         'section': _('sociales')
     }
-    return render(request, 'frontend/sociales/satisfaccion_empleados.html', context)
+    return render(request, 'frontend/sociales/diversidad_empleados.html', context)
 
-
+#capacitacion
 def empleados_sindicato(request):
     context = {
-        'page': _('empleados_sindicato'),
+        'page': _('Capacitación'),
         'section': _('sociales')
     }
-    return render(request, 'frontend/sociales/empleados_sindicato.html', context)
+    return render(request, 'frontend/sociales/capacitacion.html', context)
 
 
 def accidentes_laborales(request):

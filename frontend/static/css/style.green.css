@@ -14014,19 +14014,19 @@ nav.side-navbar.shrinked .sidebar-header .title {
 }
 .sidebar-item.active > .sidebar-link {
   color: #fff;
-  border-left: 4px solid #22773c;
-  background: #33b35a;
+  border-left: 4px solid #215ea3;
+  background: #174273;/*cambio del #33b35a*/
 }
 .sidebar-item.active > .sidebar-link:hover {
-  background: #33b35a;
+  background: #215ea3;
 }
 .sidebar-link:hover svg {
   fill:white;
 }
 .sidebar-item li.active > .sidebar-link {
   color: #fff;
-  border-left: 4px solid #22773c;
-  background: #39c764;
+  border-left: 4px solid #174273;
+  background:#215ea3 ;/*cambio del #39c764*/
 }
 li.active .sidebar-link svg{
   fill:#ffffff;
@@ -14066,8 +14066,8 @@ li.active .sidebar-link svg{
 }
 .sidebar-link:hover {
   color: #fff;
-  border-left: 4px solid #22773c;
-  background: #33b35a;
+  border-left: 4px solid #174273;
+  background: #215ea3;
 }
 .sidebar-link[data-bs-toggle=collapse]::before {
   display: block;
@@ -14112,7 +14112,7 @@ li.active .sidebar-link svg{
 }
 .sidebar-link[aria-expanded=true]:hover, .sidebar-link[aria-expanded=aria-expanded]:hover {
   color: #fff;
-  background: #33b35a;
+  background: #174273;
 }
 .sidebar-link .badge {
   vertical-align: middle;
