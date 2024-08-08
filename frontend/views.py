@@ -269,7 +269,7 @@ def maquinaria_averiada(request):
 ##############
 
 #transicion_energetica
-def consumo_agua(request):
+def transicion_energetica(request):
     context = {
         'page': _('Transición energética'),
         'section': _('ambientales')
@@ -277,7 +277,7 @@ def consumo_agua(request):
     return render(request, 'frontend/ambientales/transicion_energetica.html', context)
 
 #consumo_agua
-def consumo_energetico(request):
+def consumo_agua(request):
     context = {
         'page': _('Agua'),
         'section': _('ambientales')
@@ -285,7 +285,7 @@ def consumo_energetico(request):
     return render(request, 'frontend/ambientales/consumo_agua.html', context)
 
 #desechos_desper
-def consumo_energia_renobable(request):
+def desechos_desperdicios(request):
     context = {
         'page': _('Desechos y desperdicios'),
         'section': _('ambientales')
@@ -293,20 +293,20 @@ def consumo_energia_renobable(request):
     return render(request, 'frontend/ambientales/desechos_desperdicios.html', context)
 
 
-def reduccion_consumo_energia(request):
-    context = {
-        'page': _('reduccion_consumo_energia'),
-        'section': _('ambientales')
-    }
-    return render(request, 'frontend/ambientales/reduccion_consumo_energia.html', context)
+# def reduccion_consumo_energia(request):
+#     context = {
+#         'page': _('reduccion_consumo_energia'),
+#         'section': _('ambientales')
+#     }
+#     return render(request, 'frontend/ambientales/reduccion_consumo_energia.html', context)
 
 
-def indice_despercicios(request):
+def cadena_suministro(request):
     context = {
-        'page': _('indice_despercicios'),
+        'page': _('Cadena de suministro'),
         'section': _('ambientales')
     }
-    return render(request, 'frontend/ambientales/indice_despercicios.html', context)
+    return render(request, 'frontend/ambientales/cadena_suministro.html', context)
 
 
 #############################
@@ -314,7 +314,7 @@ def indice_despercicios(request):
 #############################
 
 #atraccion_talento
-def empleados_funcion(request):
+def atraccion_talento(request):
     context = {
         'page': _('Atracción y retención de talento'),
         'section': _('sociales')
@@ -322,7 +322,7 @@ def empleados_funcion(request):
     return render(request, 'frontend/sociales/atraccion_talento.html', context)
 
 #diversidad_empleados
-def satisfaccion_empleados(request):
+def diversidad_empleados(request):
     context = {
         'page': _('Diversidad, equidad e inclusión'),
         'section': _('sociales')
@@ -340,31 +340,36 @@ def empleados_sindicato(request):
 
 def accidentes_laborales(request):
     context = {
-        'page': _('accidentes_laborales'),
+        'page': _('Salud y seguridad laboral'),
         'section': _('sociales')
     }
-    return render(request, 'frontend/sociales/accidentes_laborales.html', context)
+    return render(request, 'frontend/sociales/salud_seguridad.html', context)
 
-
+def salud_seguridad_laboral(request):
+    context ={
+        'page': _('Salud y seguridad laboral'),
+        'section': _('sociales')
+    }
+    return render(request, 'frontend/sociales/salud_seguridad.html', context)
 #############################
 # gobierno_corporativo
 #############################
 
 
-def accionistas_mayoritarios(request):
+def estructura_gobierno(request):
     context = {
-        'page': _('accionistas_mayoritarios'),
-        'section': _('gobierno_corporativo')
+        'page': _('Estructura de gobierno corporativo y comités'),
+        'section': _('gobernanza')
     }
-    return render(request, 'frontend/gobierno/accionistas_mayoritarios.html', context)
+    return render(request, 'frontend/gobierno/estructura_gobierno.html', context)
 
 
-def consejo_admon(request):
+def etica_anti(request):
     context = {
-        'page': _('consejo_admon'),
+        'page': _('Ética y anticorrupción'),
         'section': _('gobierno_corporativo')
     }
-    return render(request, 'frontend/gobierno/consejo_admon.html', context)
+    return render(request, 'frontend/gobierno/etica_anti.html', context)
 
 
 def consejo_admon_independientes(request):

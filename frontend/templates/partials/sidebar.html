@@ -72,7 +72,7 @@
     </div>
     <ul class="list-unstyled py-4">
 
-        <li class="sidebar-item {% if section == _('economicos') %}active{% endif %}">
+        {% comment %} <li class="sidebar-item {% if section == _('economicos') %}active{% endif %}">
             <a class="sidebar-link" href="#economicosdropdownDropdown" data-bs-toggle="collapse"
                aria-expanded="{% if section == _('economicos') %}true{% else %}false{% endif %}">
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -178,7 +178,7 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> {% endcomment %}
 
         <li class="sidebar-item  {% if section == _('ambientales') %}active{% endif %}">
             <a class="sidebar-link collapsed" href="#ambientalesdropdownDropdown" data-bs-toggle="collapse"
@@ -203,31 +203,31 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                 Ambientales</a>
             <ul class="list-unstyled collapse {% if section == _('ambientales') %}show{% endif %}"
                 id="ambientalesdropdownDropdown">
-                <li class="{% if page == _('transicion_energetica') %}active{% endif %}">
+                <li class="{% if page == _('Transición energética') %}active{% endif %}">
                     <a class="sidebar-link" href="{% url 'transicion_energetica' %}">
                         Transición Energética
                     </a>
                 </li>
                 <ul class="list-unstyled collapse {% if section == _('ambientales') %}show{% endif %}"
                     id="ambientalesdropdownDropdown">
-                    <li class="{% if page == _('consumo_agua') %}active{% endif %}">
+                    <li class="{% if page == _('Agua') %}active{% endif %}">
                         <a class="sidebar-link" href="{% url 'consumo_agua' %}">
                             Agua
                         </a>
                     </li>
-                    <li class="{% if page == _('desechos_desperdicios') %}active{% endif %}">
+                    <li class="{% if page == _('Desechos y desperdicios') %}active{% endif %}">
                         <a class="sidebar-link" href="{% url 'desechos_desperdicios' %}">
                             Desechos y desperdicio
                         </a>
                     </li>
-                    <li class="{% if page == _('reduccion_consumo_energia') %}active{% endif %}">
+                    {% comment %} <li class="{% if page == _('reduccion_consumo_energia') %}active{% endif %}">
                         <a class="sidebar-link" href="{% url 'reduccion_consumo_energia' %}">
                             Reducción del consumo de energía (estimado)
                         </a>
-                    </li>
-                    <li class="{% if page == _('indice_despercicios') %}active{% endif %}">
-                        <a class="sidebar-link" href="{% url 'indice_despercicios' %}">
-                            Índice de Desperdicios
+                    </li> {% endcomment %}
+                    <li class="{% if page == _('Cadena de suministro') %}active{% endif %}">
+                        <a class="sidebar-link" href="{% url 'cadena_suministro' %}">
+                            Cadena de Suministro
                         </a>
                     </li>
                 </ul>
@@ -257,24 +257,24 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                 Sociales</a>
             <ul class="list-unstyled collapse {% if section == _('sociales') %}show{% endif %}"
                 id="socialesdropdownDropdown">
-                <li class="{% if page == _('atraccion_talento') %}active{% endif %}">
+                <li class="{% if page == _('Atracción y retención de talento') %}active{% endif %}">
                     <a class="sidebar-link" href="{% url 'atraccion_talento' %}">
                         Atracción y retención de talento
                     </a>
                 </li>
-                <li class="{% if page == _('diversidad_empleados') %}active{% endif %}">
+                <li class="{% if page == _('Diversidad, equidad e inclusión') %}active{% endif %}">
                     <a class="sidebar-link" href="{% url 'diversidad_empleados' %}">
                         Diversidad, equidad e inclusión
                     </a>
                 </li>
-                <li class="{% if page == _('capacitacion_') %}active{% endif %}">
+                <li class="{% if page == _('Capacitación') %}active{% endif %}">
                     <a class="sidebar-link" href="{% url 'capacitacion_' %}">
                         Capacitación
                     </a>
                 </li>
-                <li class="{% if page == _('accidentes_laborales') %}active{% endif %}">
-                    <a class="sidebar-link" href="{% url 'accidentes_laborales' %}">
-                        Número de Accidentes Laborales
+                <li class="{% if page == _('Salud y seguridad laboral') %}active{% endif %}">
+                    <a class="sidebar-link" href="{% url 'salud_seguridad_laboral' %}">
+                        Salud y seguridad laboral
                     </a>
                 </li>
             </ul>
@@ -303,16 +303,16 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                 Gobernanza</a>
             <ul class="list-unstyled collapse {% if section == _('gobierno_corporativo') %}show{% endif %}"
                 id="gobiernodropdownDropdown">
-                <li class="{% if page == _('accionistas_mayoritarios') %}active{% endif %}">
-                    <a class="sidebar-link" href="{% url 'accionistas_mayoritarios' %}">
-                        Número de accionistas mayoritarios
+                <li class="{% if page == _('Estructura de gobierno corporativo y comités') %}active{% endif %}">
+                    <a class="sidebar-link" href="{% url 'estructura_gobierno' %}">
+                        Estructura de gobierno corporativo y comités
                     </a>
                 </li>
-                <li class="{% if page == _('consejo_admon') %}active{% endif %}">
-                    <a class="sidebar-link" href="{% url 'consejo_admon' %}">
-                        Número de integrantes del consejo de administración
+                <li class="{% if page == _('Ética y anticorrupción') %}active{% endif %}">
+                    <a class="sidebar-link" href="{% url 'etica_anti' %}">
+                        Ética y anticorrupción
                     </a>
-                </li>
+                {% comment %} </li>
                 <li class="{% if page == _('consejo_admon_independientes') %}active{% endif %}">
                     <a class="sidebar-link" href="{% url 'consejo_admon_independientes' %}">
                         Número de integrantes independientes del consejo de administración
@@ -332,7 +332,7 @@ l116 0 133 97 c73 53 135 103 138 110 7 17 -15 43 -36 43 -9 0 -49 -20 -90
                     <a class="sidebar-link" href="{% url 'compensacines_personal_clave' %}">
                         Compensaciones al personal clave de la entidad
                     </a>
-                </li>
+                </li> {% endcomment %}
             </ul>
         </li>
 
