@@ -268,103 +268,108 @@ def maquinaria_averiada(request):
 # Ambientales
 ##############
 
+#transicion_energetica
+def transicion_energetica(request):
+    context = {
+        'page': _('Transición energética'),
+        'section': _('ambientales')
+    }
+    return render(request, 'frontend/ambientales/transicion_energetica.html', context)
 
+#consumo_agua
 def consumo_agua(request):
     context = {
-        'page': _('consumo_agua'),
+        'page': _('Agua'),
         'section': _('ambientales')
     }
     return render(request, 'frontend/ambientales/consumo_agua.html', context)
 
-
-def consumo_energetico(request):
+#desechos_desper
+def desechos_desperdicios(request):
     context = {
-        'page': _('consumo_energetico'),
+        'page': _('Desechos y desperdicios'),
         'section': _('ambientales')
     }
-    return render(request, 'frontend/ambientales/consumo_energetico.html', context)
+    return render(request, 'frontend/ambientales/desechos_desperdicios.html', context)
 
 
-def consumo_energia_renobable(request):
+# def reduccion_consumo_energia(request):
+#     context = {
+#         'page': _('reduccion_consumo_energia'),
+#         'section': _('ambientales')
+#     }
+#     return render(request, 'frontend/ambientales/reduccion_consumo_energia.html', context)
+
+
+def cadena_suministro(request):
     context = {
-        'page': _('consumo_energia_renobable'),
+        'page': _('Cadena de suministro'),
         'section': _('ambientales')
     }
-    return render(request, 'frontend/ambientales/consumo_energia_renobable.html', context)
-
-
-def reduccion_consumo_energia(request):
-    context = {
-        'page': _('reduccion_consumo_energia'),
-        'section': _('ambientales')
-    }
-    return render(request, 'frontend/ambientales/reduccion_consumo_energia.html', context)
-
-
-def indice_despercicios(request):
-    context = {
-        'page': _('indice_despercicios'),
-        'section': _('ambientales')
-    }
-    return render(request, 'frontend/ambientales/indice_despercicios.html', context)
+    return render(request, 'frontend/ambientales/cadena_suministro.html', context)
 
 
 #############################
 # sociales
 #############################
 
-
-def empleados_funcion(request):
+#atraccion_talento
+def atraccion_talento(request):
     context = {
-        'page': _('empleados_funcion'),
+        'page': _('Atracción y retención de talento'),
         'section': _('sociales')
     }
-    return render(request, 'frontend/sociales/empleados_funcion.html', context)
+    return render(request, 'frontend/sociales/atraccion_talento.html', context)
 
-
-def satisfaccion_empleados(request):
+#diversidad_empleados
+def diversidad_empleados(request):
     context = {
-        'page': _('satisfaccion_empleados'),
+        'page': _('Diversidad, equidad e inclusión'),
         'section': _('sociales')
     }
-    return render(request, 'frontend/sociales/satisfaccion_empleados.html', context)
+    return render(request, 'frontend/sociales/diversidad_empleados.html', context)
 
-
+#capacitacion
 def empleados_sindicato(request):
     context = {
-        'page': _('empleados_sindicato'),
+        'page': _('Capacitación'),
         'section': _('sociales')
     }
-    return render(request, 'frontend/sociales/empleados_sindicato.html', context)
+    return render(request, 'frontend/sociales/capacitacion.html', context)
 
 
 def accidentes_laborales(request):
     context = {
-        'page': _('accidentes_laborales'),
+        'page': _('Salud y seguridad laboral'),
         'section': _('sociales')
     }
-    return render(request, 'frontend/sociales/accidentes_laborales.html', context)
+    return render(request, 'frontend/sociales/salud_seguridad.html', context)
 
-
+def salud_seguridad_laboral(request):
+    context ={
+        'page': _('Salud y seguridad laboral'),
+        'section': _('sociales')
+    }
+    return render(request, 'frontend/sociales/salud_seguridad.html', context)
 #############################
 # gobierno_corporativo
 #############################
 
 
-def accionistas_mayoritarios(request):
+def estructura_gobierno(request):
     context = {
-        'page': _('accionistas_mayoritarios'),
-        'section': _('gobierno_corporativo')
+        'page': _('Estructura de gobierno corporativo y comités'),
+        'section': _('gobernanza')
     }
-    return render(request, 'frontend/gobierno/accionistas_mayoritarios.html', context)
+    return render(request, 'frontend/gobierno/estructura_gobierno.html', context)
 
 
-def consejo_admon(request):
+def etica_anti(request):
     context = {
-        'page': _('consejo_admon'),
+        'page': _('Ética y anticorrupción'),
         'section': _('gobierno_corporativo')
     }
-    return render(request, 'frontend/gobierno/consejo_admon.html', context)
+    return render(request, 'frontend/gobierno/etica_anti.html', context)
 
 
 def consejo_admon_independientes(request):

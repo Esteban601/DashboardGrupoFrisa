@@ -66,7 +66,7 @@
 
         <div class="collapse navbar-collapse" id="navbarsExample01">
             <ul class="navbar-nav me-auto mb-2">
-                <li class="nav-item dropdown">
+                {% comment %} <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
                        href="#"
                        id="navbarDropdownMenuLinkSeccionEco"
@@ -139,7 +139,7 @@
                             Maquinaria averiada
                         </a>
                     </div>
-                </li>
+                </li> {% endcomment %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
                        href="#"
@@ -150,18 +150,22 @@
                         {% trans 'ambientales' %}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkSeccionAmb">
-                        <a class="dropdown-item {% if page == _('consumo_energetico') %}disabled{% endif %}"
-                           href="{% url 'consumo_energetico' %}">
-                            Consumo energético
+                        <a class="dropdown-item {% if page == _('Transición energética') %}disabled{% endif %}"
+                           href="{% url 'transicion_energetica' %}">
+                            Transición Energética
                         </a>
-                        <a class="dropdown-item {% if page == _('consumo_energia_renobable') %}disabled{% endif %}"
-                           href="{% url 'consumo_energia_renobable' %}">
-                            Producción y consumo de energía renovable
+                        <a class="dropdown-item {% if page == _('Agua') %}disabled{% endif %}"
+                           href="{% url 'consumo_agua' %}">
+                            Agua
                         </a>
-                        <a class="dropdown-item {% if page == _('reduccion_consumo_energia') %}disabled{% endif %}"
-                           href="{% url 'reduccion_consumo_energia' %}">
-                            Reducción del consumo de energía
+                        <a class="dropdown-item {% if page == _('Desechos y desperdicios') %}disabled{% endif %}"
+                           href="{% url 'desechos_desperdicios' %}">
+                            Desechos y desperdicio
                         </a>
+                         <a class="dropdown-item {% if page == _('Cadena de suministro') %}disabled{% endif %}"
+                           href="{% url 'cadena_suministro' %}">
+                            Cadena de suministro
+                        </a> 
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -174,21 +178,21 @@
                         {% trans 'sociales' %}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkSeccionSoc">
-                        <a class="dropdown-item {% if page == _('empleados_funcion') %}disabled{% endif %}"
-                           href="{% url 'empleados_funcion' %}">
-                            Número de empleados, desglose por función
+                        <a class="dropdown-item {% if page == _('Atracción y retención de talento') %}disabled{% endif %}"
+                           href="{% url 'atraccion_talento' %}">
+                           Atracción y retención de talento
                         </a>
-                        <a class="dropdown-item {% if page == _('satisfaccion_empleados') %}disabled{% endif %}"
-                           href="{% url 'satisfaccion_empleados' %}">
-                            Satisfación de los empleados
+                        <a class="dropdown-item {% if page == _('Diversidad, equidad e inclusión') %}disabled{% endif %}"
+                           href="{% url 'diversidad_empleados' %}">
+                           Diversidad, equidad e inclusión
                         </a>
-                        <a class="dropdown-item {% if page == _('empleados_sindicato') %}disabled{% endif %}"
-                           href="{% url 'empleados_sindicato' %}">
-                            Porcentaje de empleados afiliados a sindicatos
+                        <a class="dropdown-item {% if page == _('Capacitación') %}disabled{% endif %}"
+                           href="{% url 'capacitacion_' %}">
+                            Capacitación
                         </a>
-                        <a class="dropdown-item {% if page == _('accidentes_laborales') %}disabled{% endif %}"
-                           href="{% url 'accidentes_laborales' %}">
-                            Número de Accidentes Laborales
+                        <a class="dropdown-item {% if page == _('Salud y seguridad laboral') %}disabled{% endif %}"
+                           href="{% url 'salud_seguridad_laboral' %}">
+                           Salud y seguridad laboral
                         </a>
                     </div>
                 </li>
@@ -199,18 +203,18 @@
                        role="button"
                        data-bs-toggle="dropdown"
                        aria-expanded="false">
-                        {% trans 'gobierno_corporativo' %}
+                        {% trans 'Gobernanza' %}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkSeccionGob">
-                        <a class="dropdown-item {% if page == _('accionistas_mayoritarios') %}disabled{% endif %}"
-                           href="{% url 'accionistas_mayoritarios' %}">
-                            Número de accionistas mayoritarios
+                        <a class="dropdown-item {% if page == _('Estructura de gobierno corporativo y comités') %}disabled{% endif %}"
+                           href="{% url 'estructura_gobierno' %}">
+                           Estructura de gobierno corporativo y comités
                         </a>
-                        <a class="dropdown-item {% if page == _('consejo_admon') %}disabled{% endif %}"
-                           href="{% url 'consejo_admon' %}">
-                            Número de integrantes del consejo de administración
+                        <a class="dropdown-item {% if page == _('Ética y anticorrupción') %}disabled{% endif %}"
+                           href="{% url 'etica_anti' %}">
+                           Ética y anticorrupción
                         </a>
-                        <a class="dropdown-item {% if page == _('consejo_admon_independientes') %}disabled{% endif %}"
+                        {% comment %} <a class="dropdown-item {% if page == _('consejo_admon_independientes') %}disabled{% endif %}"
                            href="{% url 'consejo_admon_independientes' %}">
                             Número de integrantes independientes del consejo de administración
                         </a>
@@ -225,7 +229,7 @@
                         <a class="dropdown-item {% if page == _('compensacines_personal_clave') %}disabled{% endif %}"
                            href="{% url 'compensacines_personal_clave' %}">
                             Compensaciones al personal clave de la entidad
-                        </a>
+                        </a> {% endcomment %}
 
                     </div>
                 </li>
