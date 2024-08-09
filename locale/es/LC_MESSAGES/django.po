@@ -223,6 +223,9 @@ msgstr "Gobierno corporativo"
 msgid "accionistas_mayoritarios"
 msgstr "Número de accionistas mayoritarios"
 
+
+
+
 #: frontend/templates/layauts/base.html:302
 #: frontend/templates/partials/header.html:205
 #: frontend/templates/partials/sidebar.html:298 frontend/views.py:340

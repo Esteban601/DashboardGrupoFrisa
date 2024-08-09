@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     # path('', views.index, name='index'),
-    path('', views.ingresos, name='ingresos'),
+    path('', views.transicion_energetica, name='transicion_energetica'),
     path('materiales', views.materiales, name='materiales'),
     path('energia', views.energia, name='energia'),
     path('agua-afluentes', views.agua_afluentes, name='agua_afluentes'),
@@ -38,21 +38,21 @@ urlpatterns = [
     path('perdidas_demandas', views.perdidas_demandas, name='perdidas_demandas'),
     path('maquinaria_averiada', views.maquinaria_averiada, name='maquinaria_averiada'),
 
-    path('consumo_agua', views.consumo_agua, name='consumo_agua'),
-    path('consumo_energetico', views.consumo_energetico, name='consumo_energetico'),
-    path('consumo_energia_renobable', views.consumo_energia_renobable, name='consumo_energia_renobable'),
-    path('reduccion_consumo_energia', views.reduccion_consumo_energia, name='reduccion_consumo_energia'),
-    path('indice_despercicios', views.indice_despercicios, name='indice_despercicios'),
+    path('transicion_energetica', views.transicion_energetica, name='transicion_energetica'),#consumo_agua
+    path('consumo_agua', views.consumo_agua, name='consumo_agua'),#consumo_energetico
+    path('desechos_desperdicios', views.desechos_desperdicios, name='desechos_desperdicios'),#consumo_energia_renovable
+    #path('reduccion_consumo_energia', views.reduccion_consumo_energia, name='reduccion_consumo_energia'),
+    path('cadena_suministro', views.cadena_suministro, name='cadena_suministro'),
 
-    path('empleados_funcion', views.empleados_funcion, name='empleados_funcion'),
-    path('empleados_sindicato', views.empleados_sindicato, name='empleados_sindicato'),
-    path('empleados_funcion', views.empleados_funcion, name='empleados_funcion'),
-    path('satisfaccion_empleados', views.satisfaccion_empleados, name='satisfaccion_empleados'),
-    path('empleados_sindicato', views.empleados_sindicato, name='empleados_sindicato'),
-    path('accidentes_laborales', views.accidentes_laborales, name='accidentes_laborales'),
+    path('atraccion_talento', views.atraccion_talento, name='atraccion_talento'),#empelados_funcion
+    path('capacitacion_', views.empleados_sindicato, name='capacitacion_'),
+    path('empleados_funcion', views.atraccion_talento, name='empleados_funcion'),
+    path('diversidad_empleados', views.diversidad_empleados, name='diversidad_empleados'),#satisfaccion_empleados
+   # path('capacitacion', views.empleados_sindicato, name='capacitacion'),
+    path('salud_seguridad_laboral', views.salud_seguridad_laboral, name='salud_seguridad_laboral'),
 
-    path('accionistas_mayoritarios', views.accionistas_mayoritarios, name='accionistas_mayoritarios'),
-    path('consejo_admon', views.consejo_admon, name='consejo_admon'),
+    path('estructura_gobierno', views.estructura_gobierno, name='estructura_gobierno'),
+    path('etica_anti', views.etica_anti, name='etica_anti'),
     path('consejo_admon_independientes', views.consejo_admon_independientes, name='consejo_admon_independientes'),
     path('areas_direccion', views.areas_direccion, name='areas_direccion'),
     path('directivos_relevantes', views.directivos_relevantes, name='directivos_relevantes'),

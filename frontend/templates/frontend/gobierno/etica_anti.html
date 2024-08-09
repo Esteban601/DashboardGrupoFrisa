@@ -7,11 +7,11 @@
             <div class="card-body">
                 <div class="row gx-5 bg-white">
                     <div class="col-md-12 mb-6">
-                                <div class="chart" style="width:100%;height: 400px" id="chart1"></div>
+                                <div class="chart" style="width:100%;height: 400px" id="chart3"></div>
                     </div>
                     <div class="col-md-12 mb-6">
-                                <div class="chart" style="width:100%;height: 400px" id="chart2"></div>
-                    </div>
+                        <div class="chart" style="width:100%;height: 400px" id="chart4"></div>
+            </div>
                 </div>
             </div>
         </div>
@@ -26,15 +26,15 @@
     document.addEventListener("DOMContentLoaded", function () {
         var BARCHARTHOME = document.getElementById('barChartHome2');
 
-        var chart1 = AmCharts.makeChart("chart1", {
+        var chart3 = AmCharts.makeChart("chart3", {
             "titles": [
                 {
-                    "text": "Número de accionistas mayoritarios.",
+                    "text": "Denuncias por corrupción",
                     "size": 16,
                     "color": "#000000"
                 },
                 {
-                    "text": "Número de accionistas mayoritarios",
+                    "text": "",
                     "size": 12
                 }
             ],
@@ -42,7 +42,7 @@
             "type": "serial",
             "addClassNames": true,
             "theme": "none",
-            "colors": ["#1C5DA6", "#6298C2"],
+            "colors": ["#8EA043", "#6298C2"],
             "balloon": {
                 "adjustBorderColor": false,
                 "horizontalPadding": 10,
@@ -51,20 +51,16 @@
             },
             "dataProvider": [
                 {
-                    "year": "2019",
-                    "percent": 3,
-                },
-                {
-                    "year": "2020",
-                    "percent": 3,
-                },
-                {
-                    "year": "2021",
-                    "percent": 3,
-                },
-                {
                     "year": "2022",
-                    "percent": 3,
+                    "percent": 1,
+                },
+                {
+                    "year": "2023",
+                    "percent": 0,
+                },
+                {
+                    "year": "2024",
+                    "percent": 0,
                 }
             ],
             "valueAxes": [{
@@ -95,88 +91,70 @@
             }
         });
 
-        var chart2 = AmCharts.makeChart("chart2", {
+        var chart4 = AmCharts.makeChart("chart4", {
             "titles": [
                 {
-                    "text": "Porcentaje de hombres y mujeres.",
+                    "text": "Horas-Hombre de capacitación en ética",
                     "size": 16,
                     "color": "#000000"
                 },
                 {
-                    "text": "Accionistas mayoritarios.",
+                    "text": "",
                     "size": 12
                 }
             ],
-            "addClassNames": true,
-            "colors": ["#1C5DA6", "#6298C2", '#FF8C48', '#ffffff'],
+            "fontSize": 14,
             "type": "serial",
+            "addClassNames": true,
             "theme": "none",
-            "legend": {
-                "horizontalGap": 10,
-                "maxColumns": 1,
-                "position": "bottom",
-                "useGraphSettings": true,
-                "markerSize": 10
+            "colors": ["#174273", "#6298C2"],
+            "balloon": {
+                "adjustBorderColor": false,
+                "horizontalPadding": 10,
+                "verticalPadding": 8,
+                "color": "#ffffff"
             },
             "dataProvider": [
                 {
-                    "year": 2019,
-                    "hombres": 67,
-                    "mujeres": 33
+                    "year": "2022",
+                    "percent": 700,
                 },
                 {
-                    "year": 2020,
-                    "hombres": 67,
-                    "mujeres": 33
+                    "year": "2023",
+                    "percent": 753,
                 },
                 {
-                    "year": 2021,
-                    "hombres": 67,
-                    "mujeres": 33
-                },
-                {
-                    "year": 2022,
-                    "hombres": 67,
-                    "mujeres": 33
+                    "year": "2024",
+                    "percent": 0,
                 }
             ],
             "valueAxes": [{
-                "stackType": "regular",
-                "axisAlpha": 0.3,
-                "gridAlpha": 0
+                "axisAlpha": 0,
+                "position": "left",
+                "gridAlpha": 0,
+                "labelsEnabled": false,
+                "minimum": 0
             }],
-            "graphs": [
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Hombres",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "hombres"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Mujeres",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "mujeres"
-                }
-            ],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "<span style='font-size:15px;'>[[value]]</span>",
+                "fillAlphas": 1,
+                "title": "Efectivo / Activos Totales",
+                "type": "column",
+                "valueField": "percent",
+                "labelText": "[[value]]"
+            }],
             "categoryField": "year",
             "categoryAxis": {
                 "gridPosition": "start",
-                "axisAlpha": 0,
-                "gridAlpha": 0,
-                "position": "left"
+                "axisAlpha": .5,
+                "tickLength": 0,
+                "gridAlpha": 0
+            },
+            "export": {
+                "enabled": true
             }
-
         });
-
 
     });
 </script>
