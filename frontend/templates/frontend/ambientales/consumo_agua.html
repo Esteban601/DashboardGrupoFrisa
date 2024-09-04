@@ -7,8 +7,11 @@
                 <div class="card-body">
                     <div class="row gx-5 bg-white">
                         <div class="col-md-12 mb-6">
-                                <div class="chart" style="width:100%;height: 400px" id="chart5"></div>
+                                <div class="chart" style="width:100%;height: 400px" id="chart6"></div>
                         </div>
+                        <div class="col-md-12 mb-6">
+                            <div class="chart" style="width:100%;height: 400px" id="chart5"></div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -86,6 +89,129 @@
             "export": {
                 "enabled": true
             }
+        });
+
+        
+        var chart6 = AmCharts.makeChart("chart6", {
+            "titles": [
+                {
+                    "text": "Gasto de agua por zona (m³).",
+                    "size": 16,
+                    "color": "#000000"
+                }
+            ],
+            "addClassNames": true,
+            "colors": ["#184374", "#FF8C48", "#A4B05F", "#C5494C", "#1C66B2", "#6298C2"],
+            "type": "serial",
+            "theme": "none",
+            "legend": {
+                "horizontalGap": 4,
+                "maxColumns": 5,
+                "position": "bottom",
+                "useGraphSettings": true,
+                "markerSize": 10,
+                "align":"center"
+            },
+            "dataProvider": [
+                {
+                    "year": 2022,
+                    "Zona foranea centro norte": 74311,
+                    "Zona 1": 117347,
+                    "Zona 2": 37808,
+                    "Zona Oriente":111576,
+                    "Zona Poniente":72850,
+                    "Zona Sureste":80
+                },
+                {
+                    "year": 2023,
+                    "Zona foranea centro norte": 48749,
+                    "Zona 1": 101089,
+                    "Zona 2": 31709,
+                    "Zona Oriente": 117924,
+                    "Zona Poniente":61072,
+                    "Zona Sureste":113983
+                },
+                {
+                    "year": 2024,
+                    "hombres": 0,
+                    "mujeres": 0
+                }
+            ],
+            "valueAxes": [{
+                "stackType": "regular",
+                "axisAlpha": 0.3,
+                "gridAlpha": 0
+            }],
+            "graphs": [
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Zona foranea centro norte",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Zona foranea centro norte"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Zona 1",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Zona 1"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Zona 2",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Zona 2"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Zona Oriente",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Zona Oriente"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Zona Poniente",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Zona Poniente"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Zona Sureste",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Zona Sureste"
+                }
+            ],
+            "categoryField": "year",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "axisAlpha": 0,
+                "gridAlpha": 0,
+                "position": "left"
+            }
+
         });
 
 

@@ -12,6 +12,9 @@
                     <div class="col-md-12 mb-6">
                         <div class="chart" style="width:100%;height: 400px" id="chart5.2"></div>
                     </div>
+                    <div class="col-md-12 mb-6">
+                        <div class="chart" style="width:100%;height: 400px" id="chart7"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,7 +96,7 @@
         });
 
         
-        var chart5 = AmCharts.makeChart("chart5.2", {
+        var chart6 = AmCharts.makeChart("chart5.2", {
             "titles": [
                 {
                     "text": "Contrataciones",
@@ -157,6 +160,143 @@
                 "enabled": true
             }
         });
+
+        
+        var chart7 = AmCharts.makeChart("chart7", {
+            "titles": [
+                {
+                    "text": "Edad de contrataciones.",
+                    "size": 16,
+                    "color": "#000000"
+                }
+            ],
+            "addClassNames": true,
+            "colors": ["#184374", "#FF8C48", "#A4B05F", "#C5494C", "#1C66B2", "#6298C2","#97A3AF"],
+            "type": "serial",
+            "theme": "none",
+            "legend": {
+                "horizontalGap": 4,
+                "maxColumns": 5,
+                "position": "bottom",
+                "useGraphSettings": true,
+                "markerSize": 10,
+                "align":"center"
+            },
+            "dataProvider": [
+                {
+                    "year": 2022,
+                    "18-25": 45,
+                    "26-30": 42,
+                    "31-35": 28,
+                    "36-40":23,
+                    "41-45":16,
+                    "46-50":11,
+                    "51 en adelante":21
+                },
+                {
+                    "year": 2023,
+                    "18-25": 35,
+                    "26-30": 35,
+                    "31-35": 31,
+                    "36-40":31,
+                    "41-45":22,
+                    "46-50":20,
+                    "51 en adelante":25
+                },
+                {
+                    "year": 2024,
+                    "hombres": 0,
+                    "mujeres": 0
+                }
+            ],
+            "valueAxes": [{
+                "stackType": "regular",
+                "axisAlpha": 0.3,
+                "gridAlpha": 0
+            }],
+            "graphs": [
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "18-25",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "18-25"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "26-30",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "26-30"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "31-35",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "31-35"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "36-40",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "36-40"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "41-45",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "41-45"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "46-50",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "46-50"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "51 en adelante",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "51 en adelante"
+                }
+            ],
+            "categoryField": "year",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "axisAlpha": 0,
+                "gridAlpha": 0,
+                "position": "left"
+            }
+
+        });
+
+
     });
 </script>
 {% endblock %}
