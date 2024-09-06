@@ -11,7 +11,10 @@
                         </div>
                         <div class="col-md-12 mb-6">
                             <div class="chart" style="width:100%;height: 400px" id="chart5"></div>
-                    </div>
+                        </div>
+                        <div class="col-md-12 mb-6">
+                            <div class="chart" style="width:100%;height: 800px" id="chart7"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -142,6 +145,7 @@
                 "axisAlpha": 0.3,
                 "gridAlpha": 0
             }],
+            "startDuration": 1,
             "graphs": [
                 {
                     "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
@@ -214,6 +218,351 @@
 
         });
 
+        var chart7 = AmCharts.makeChart("chart7", {
+            "titles": [
+                {
+                    "text": "Captación de agua pluvial (metros de tubo para captación)",
+                    "size": 16,
+                    "color": "#000000"
+                }
+            ],
+            "addClassNames": true,
+            "colors": [
+                "#FF8C48", "#1C66B2", "#FCAA81", "#3DADF2", "#C5494C", "#88BEE2", 
+                "#D6747B", "#2A8BD3", "#F9CEBB", "#184374", "#F2B6C1", "#0F2842", 
+                "#A4B05F", "#6298C2", "#CAD188", "#305982", "#F0F2C2", "#97A3AF", 
+                "#BAE2F7", "#373F47", "#BACAD8", "#4D5459", "#DFEAF2", "#6D7377"
+                    ],
+            "type": "serial",
+            "theme": "none",
+            "legend": {
+                "horizontalGap": 4,
+                "maxColumns": 5,
+                "position": "bottom",
+                "useGraphSettings": true,
+                "markerSize": 10,
+                "align":"center"
+            },
+            "dataProvider": [
+                {
+                    "year": 2022,
+                    "Magno 26": 1080,
+                    "Magno 35": 1000,
+                    "El triangulo": 900,
+                    "Santin":1560,
+                    "Mundo E":14568,
+                    "Arboledas":1565,
+                    "Valle Dorado":83,
+                    "Aragon":3595,
+                    "Ojos de Agua":0,
+                    "Bosques":0,
+                    "Lindavista":500,
+                    "Real":200,
+                    "Del Valle":250,
+                    "Las Palmas":150,
+                    "Tuxtepec":125,
+                    "Cancun":946,
+                    "Arco Norte":1531,
+                    "Lak'in":1100,
+                    "Chac Mool":465,
+                    "Kabah":478,
+                    "Puerto Morelos":78,
+                    "Villas del Sol":122,
+                    "El Eden":115,
+                    "Petempich":839,
+                    "Puerto Aventuras":1157
+                },
+                {
+                    "year": 2023,
+                   "Magno 26": 1000,
+                    "Magno 35": 800,
+                    "El triangulo": 450,
+                    "Santin":1600,
+                    "Mundo E":14788,
+                    "Arboledas":1500,
+                    "Valle Dorado":83,
+                    "Aragon":3595,
+                    "Ojos de Agua":108,
+                    "Bosques":0,
+                    "Lindavista":500,
+                    "Real":200,
+                    "Del Valle":250,
+                    "Las Palmas":150,
+                    "Tuxtepec":125,
+                    "Cancun":946,
+                    "Arco Norte":1531,
+                    "Lak'in":1100,
+                    "Chac Mool":465,
+                    "Kabah":478,
+                    "Puerto Morelos":78,
+                    "Villas del Sol":122,
+                    "El Eden":115,
+                    "Petempich":839,
+                    "Puerto Aventuras":1157
+                },
+                {
+                    "year": 2024,
+                    "hombres": 0,
+                    "mujeres": 0
+                }
+            ],
+            "valueAxes": [{
+                "stackType": "regular",
+                "axisAlpha": 0.3,
+                "gridAlpha": 0
+            }],
+            "startDuration": 1,
+            "graphs": [
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Magno 26",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Magno 26"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Magno 35",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Magno 35"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "El Triángulo",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "El triangulo"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Santín",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Santin"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Mundo E",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Mundo E"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Arboledas",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Arboledas"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Valle Dorado",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Valle Dorado"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Aragón",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Aragon"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Ojo de Agua",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Ojo de Agua"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Lindavista",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Lindavista"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Real",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Real"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Del Valle",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Del Valle"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Las Palmas",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Las Palmas"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Tuxtepec",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Tuxtepec"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Cancún",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Cancun"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Arco Norte",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Arco Norte"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Lak'in",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Lak'in"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Chac Mool",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Chac Mool"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Kabah",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Kabah"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Puerto Morelos",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Puerto Morelos"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Villas del Sol",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Villas del Sol"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "El Edén",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "El Eden"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Petempich",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Petempich"
+                },
+                {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 0.8,
+                    "labelText": "[[value]]",
+                    "lineAlpha": 0.3,
+                    "title": "Puerto Aventuras",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "Puerto Aventuras"
+                }
+            ],
+            "categoryField": "year",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "axisAlpha": 0,
+                "gridAlpha": 0,
+                "position": "left"
+            }
+
+        });
 
     });
     </script>
