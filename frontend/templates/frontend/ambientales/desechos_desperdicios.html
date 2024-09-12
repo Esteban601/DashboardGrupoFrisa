@@ -1,5 +1,8 @@
 {% extends 'layauts/base_responsive.html' %}
 {% load static %}
+{% block otherstyles%}
+<link rel="stylesheet" href="{% static 'css/eventTables.css' %}">
+{% endblock %}
 {% block content %}
     <section class="p-0">
         <div class="container-fluid">
@@ -8,6 +11,13 @@
                     <div class="row gx-5 bg-white">
                         <div class="col-md-12 mb-6">
                             <div class="chart" style="width:100%;height: 400px" id="chart6"></div>
+                            <button class="btn btn-info btn-view-more" data-toggle="modal" style="background-color:#174273;border-color:#174273"
+                            data-target="#myModal" 
+                            data-title="Generación promedio de residuos por zona (ton/año)"
+                            data-description="Información desglosada:"
+                            data-category="generacion_residuos">
+                              Ver más
+                             </button>
                         </div>
                         <div class="col-md-12 mb-6">
                             <div class="chart" style="width:100%;height: 400px" id="chart5"></div>
@@ -17,11 +27,46 @@
             </div>
         </div>
     </section>
+
+    
+    <div class="modal fade popup" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="event-title card-title mb-0 text-center text-bold tc-gray mt-5 mb-5"></h2>
+                        <!--<p class="event-description card-text mt-5 text-justify"></p>-->
+                        
+                        <table class="table table-striped event-table">
+                            <thead>
+                                <tr>
+                                    <th>Proyecto</th>
+                                    <th>2022</th>
+                                    <th>2023</th>
+                                    <th>2024</th>
+                                </tr>
+                            </thead>
+                            <tbody class="event-table-body">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="text-center py-3">
+                    <button type="button" class="btn btn-secondary close-btn card-link" data-mdb-dismiss="modal">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
 {% block otherscripts %}
     <link rel="stylesheet" href="{% static 'css/amcharts.css' %}">
     <script src="{% static 'js/amCharts/amcharts.js' %}"></script>
     <script src="{% static 'js/amCharts/serial.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var BARCHARTHOME = document.getElementById('barChartHome2');
@@ -115,19 +160,19 @@
             "dataProvider": [
                 {
                     "year": 2022,
-                    "Norte": 420.95,
-                    "Oriente": 98.83,
-                    "Poniente": 212.55,
-                    "Quintana Roo":14.00,
-                    "Foraneas":53.08
+                    "Norte": 53,
+                    "Oriente": 12,
+                    "Poniente": 26,
+                    "Quintana Roo":2,
+                    "Foraneas":7
                 },
                 {
                     "year": 2023,
-                    "Norte": 494.00,
-                    "Oriente": 98.25,
-                    "Poniente": 176.02,
-                    "Quintana Roo":20.64,
-                    "Foraneas":36.73
+                    "Norte": 60,
+                    "Oriente":12,
+                    "Poniente": 21,
+                    "Quintana Roo":3,
+                    "Foraneas":4               
                 },
                 {
                     "year": 2024,
@@ -138,13 +183,14 @@
             "valueAxes": [{
                 "stackType": "regular",
                 "axisAlpha": 0.3,
-                "gridAlpha": 0
+                "gridAlpha": 0,
+                "maximum": 100
             }],
             "graphs": [
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Norte",
                     "type": "column",
@@ -152,9 +198,9 @@
                     "valueField": "Norte"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Oriente",
                     "type": "column",
@@ -162,9 +208,9 @@
                     "valueField": "Oriente"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Poniente",
                     "type": "column",
@@ -172,9 +218,9 @@
                     "valueField": "Poniente"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Quintana Roo",
                     "type": "column",
@@ -182,9 +228,9 @@
                     "valueField": "Quintana Roo"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Foráneas",
                     "type": "column",
@@ -203,4 +249,52 @@
         });
         });
     </script>
+    <script>
+        $(document).on("click", ".btn-view-more", function (e) {
+            e.preventDefault();
+            let target = $(e.currentTarget);
+            
+            let title = target.data('title');
+            let description = target.data('description');
+            let category = target.data('category');
+            
+            
+            $.getJSON("/static/data/desechos_desperdicios.json", function (data) {
+                
+                let tableBody = $("#myModal .event-table-body");
+                tableBody.empty();
+                
+                // Obtener los datos correspondientes a la categoría
+                let categoryData = data[category];
+                
+                if (categoryData) {
+                    
+                    categoryData.forEach((item) => {
+                        let row = `<tr>
+                                        <td>${item["Proyecto"]}</td>
+                                        <td>${item["2022"] || ''}</td>
+                                        <td>${item["2023"] || ''}</td>
+                                        <td>${item["2024"] || ''}</td>
+                                   </tr>`;
+                        tableBody.append(row);
+                    });
+                }
+                
+                
+                $("#myModal .event-title").text(title);
+                $("#myModal .event-description").text(description);
+                
+                
+                $("#myModal").modal('show');
+            });
+        });
+
+
+    // Manejo del botón de cerrar el modal
+    $(document).on("click", ".close-btn", function (e) {
+        e.preventDefault();
+        $("#myModal").modal('hide');
+    });
+    </script>
 {% endblock %}
+

@@ -1,0 +1,30 @@
+{
+    "colaboradores_genero": [
+        {
+            "Proyecto": "Hombres",
+            "2022": 571,
+            "2023": 709,
+            "2024": 0
+        },
+        {
+            "Proyecto": "Mujeres",
+            "2022": 322,
+            "2023": 383,
+            "2024": 0
+        }
+    ],
+    "contrataciones_genero": [
+        {
+            "Proyecto": "Hombres",
+            "2022": "121",
+            "2023": "137",
+            "2024": 0
+        },
+        {
+            "Proyecto": "Mujeres",
+            "2022": "65",
+            "2023": "62",
+            "2024": 0
+        }
+    ]
+}

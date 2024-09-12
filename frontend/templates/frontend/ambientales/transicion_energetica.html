@@ -1,5 +1,8 @@
 {% extends 'layauts/base_responsive.html' %}
 {% load static %}
+{% block otherstyles%}
+<link rel="stylesheet" href="{% static 'css/eventTables.css' %}">
+{% endblock %}
 {% block content %}
     <section class="p-0">
         <div class="container-fluid">
@@ -8,13 +11,31 @@
                     <div class="row gx-5 bg-white">
                         <div class="col-md-12 mb-6">
                             <div class="chart" style="width:100%;height: 400px" id="chart4"></div>
+                            <button class="btn btn-info btn-view-more" data-toggle="modal" style="background-color:#174273;border-color:#174273"
+                            data-target="#myModal" 
+                            data-title="Gastos de diésel por zona (GJ)"
+                            data-description="Información desglosada:"
+                            data-category="Gasto_Diesel">
+                        Ver más
+                    </button>
                         </div>
+
                         <div class="col-md-12 mb-6">
                             <div class="chart" style="width:100%;height: 400px" id="chart5"></div>
                         </div>
+
                         <div class="col-md-12 mb-6">
                             <div class="chart" style="width:100%;height: 400px" id="chart6"></div>
+
+                            <button class="btn btn-info btn-view-more" data-toggle="modal" style="background-color:#174273;border-color:#174273"
+                            data-target="#myModal" 
+                            data-title="Gastos de electricidad por zona (KW/H)"
+                            data-description="Información detallada:"
+                            data-category="Gasto_electricidad">
+                            Ver más
+                            </button>
                         </div>
+                        
                         <div class="col-md-12 mb-6">
                             <div class="chart" style="width:100%;height: 400px" id="chart7"></div>
                         </div>
@@ -26,11 +47,44 @@
             </div>
         </div>
     </section>
+    <div class="modal fade popup" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="event-title card-title mb-0 text-center text-bold tc-gray mt-5 mb-5"></h2>
+                        <!--<p class="event-description card-text mt-5 text-justify"></p>-->
+                        
+                        <table class="table table-striped event-table">
+                            <thead>
+                                <tr>
+                                    <th>Proyecto</th>
+                                    <th>2022</th>
+                                    <th>2023</th>
+                                    <th>2024</th>
+                                </tr>
+                            </thead>
+                            <tbody class="event-table-body">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="text-center py-3">
+                    <button type="button" class="btn btn-secondary close-btn card-link" data-mdb-dismiss="modal">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 {% endblock %}
 {% block otherscripts %}
     <link rel="stylesheet" href="{% static 'css/amcharts.css' %}">
     <script src="{% static 'js/amCharts/amcharts.js' %}"></script>
     <script src="{% static 'js/amCharts/serial.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var BARCHARTHOME = document.getElementById('barChartHome2');
@@ -58,21 +112,21 @@
                 "dataProvider": [
                     {
                         "year": 2022,
-                        "Zona foranea centro norte": 90.67,
-                        "Zona 1": 50.88,
-                        "Zona 2": 40.62,
-                        "Zona Oriente":54.80,
-                        "Zona Poniente":50.55,
-                        "Zona Sureste":131.04
+                        "Zona foranea centro norte": 22,
+                        "Zona 1": 12,
+                        "Zona 2": 10,
+                        "Zona Oriente":13,
+                        "Zona Poniente":12,
+                        "Zona Sureste":31
                     },
                     {
                         "year": 2023,
-                        "Zona foranea centro norte": 43.28,
-                        "Zona 1": 70.91,
-                        "Zona 2": 0.03,
-                        "Zona Oriente":0.10,
-                        "Zona Poniente":217.95,
-                        "Zona Sureste":0.05
+                        "Zona foranea centro norte": 13,
+                        "Zona 1": 21,
+                        "Zona 2": 0,
+                        "Zona Oriente":0,
+                        "Zona Poniente":66,
+                        "Zona Sureste":0
                     },
                     {
                         "year": 2024,
@@ -88,9 +142,9 @@
                 "startDuration": 1,
                 "graphs": [
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona foranea centro norte",
                         "type": "column",
@@ -98,9 +152,9 @@
                         "valueField": "Zona foranea centro norte"
                     },
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona 1",
                         "type": "column",
@@ -108,9 +162,9 @@
                         "valueField": "Zona 1"
                     },
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona 2",
                         "type": "column",
@@ -118,9 +172,9 @@
                         "valueField": "Zona 2"
                     },
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona Oriente",
                         "type": "column",
@@ -128,9 +182,9 @@
                         "valueField": "Zona Oriente"
                     },
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona Poniente",
                         "type": "column",
@@ -138,9 +192,9 @@
                         "valueField": "Zona Poniente"
                     },
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona Sureste",
                         "type": "column",
@@ -247,21 +301,21 @@
                 "dataProvider": [
                     {
                         "year": 2022,
-                        "Zona foranea centro norte": 4068441,
-                        "Zona 1": 5606977,
-                        "Zona 2": 1354768,
-                        "Zona Oriente":5018027,
-                        "Zona Poniente":4723133,
-                        "Zona Sureste":2350314
+                        "Zona foranea centro norte": 18,
+                        "Zona 1": 24,
+                        "Zona 2": 6,
+                        "Zona Oriente":22,
+                        "Zona Poniente":20,
+                        "Zona Sureste":10
                     },
                     {
                         "year": 2023,
-                        "Zona foranea centro norte": 2461164,
-                        "Zona 1": 4641423,
-                        "Zona 2": 743280,
-                        "Zona Oriente": 19640314,
-                        "Zona Poniente":3802130,
-                        "Zona Sureste":2950336
+                        "Zona foranea centro norte": 7,
+                        "Zona 1": 14,
+                        "Zona 2": 2,
+                        "Zona Oriente": 57,
+                        "Zona Poniente":11,
+                        "Zona Sureste":9
                     },
                     {
                         "year": 2024,
@@ -276,9 +330,9 @@
                 }],
                 "graphs": [
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona foranea centro norte",
                         "type": "column",
@@ -286,9 +340,9 @@
                         "valueField": "Zona foranea centro norte"
                     },
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona 1",
                         "type": "column",
@@ -296,9 +350,9 @@
                         "valueField": "Zona 1"
                     },
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona 2",
                         "type": "column",
@@ -306,9 +360,9 @@
                         "valueField": "Zona 2"
                     },
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona Oriente",
                         "type": "column",
@@ -316,9 +370,9 @@
                         "valueField": "Zona Oriente"
                     },
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona Poniente",
                         "type": "column",
@@ -326,9 +380,9 @@
                         "valueField": "Zona Poniente"
                     },
                     {
-                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                        "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                         "fillAlphas": 0.8,
-                        "labelText": "[[value]]",
+                        "labelText": "[[value]]%",
                         "lineAlpha": 0.3,
                         "title": "Zona Sureste",
                         "type": "column",
@@ -480,4 +534,52 @@
 
         });
     </script>
+    <script>
+        $(document).on("click", ".btn-view-more", function (e) {
+            e.preventDefault();
+            let target = $(e.currentTarget);
+            
+            let title = target.data('title');
+            let description = target.data('description');
+            let category = target.data('category');
+            
+            
+            $.getJSON("/static/data/transicion_energetica.json", function (data) {
+                
+                let tableBody = $("#myModal .event-table-body");
+                tableBody.empty();
+                
+                // Obtener los datos correspondientes a la categoría
+                let categoryData = data[category];
+                
+                if (categoryData) {
+                    
+                    categoryData.forEach((item) => {
+                        let row = `<tr>
+                                        <td>${item["Proyecto"]}</td>
+                                        <td>${item["2022"] || ''}</td>
+                                        <td>${item["2023"] || ''}</td>
+                                        <td>${item["2024"] || ''}</td>
+                                   </tr>`;
+                        tableBody.append(row);
+                    });
+                }
+                
+                
+                $("#myModal .event-title").text(title);
+                $("#myModal .event-description").text(description);
+                
+                 
+                $("#myModal").modal('show');
+            });
+        });
+
+
+    // Manejo del botón de cerrar el modal
+    $(document).on("click", ".close-btn", function (e) {
+        e.preventDefault();
+        $("#myModal").modal('hide');
+    });
+    </script>
+    
 {% endblock %}

@@ -1,5 +1,8 @@
 {% extends 'layauts/base_responsive.html' %}
 {% load static %}
+{% block otherstyles%}
+<link rel="stylesheet" href="{% static 'css/eventTables.css' %}">
+{% endblock %}
 {% block content %}
     <section class="p-0">
         <div class="container-fluid">
@@ -8,23 +11,71 @@
                     <div class="row gx-5 bg-white">
                         <div class="col-md-12 mb-6">
                                 <div class="chart" style="width:100%;height: 400px" id="chart6"></div>
+                                <button class="btn btn-info btn-view-more" data-toggle="modal" style="background-color:#174273;border-color:#174273"
+                                data-target="#myModal" 
+                                data-title="Gastos de agua por zona (m³)"
+                                data-description="Información desglosada:"
+                                data-category="gasto_agua">
+                            Ver más
+                        </button> 
                         </div>
                         <div class="col-md-12 mb-6">
                             <div class="chart" style="width:100%;height: 400px" id="chart5"></div>
                         </div>
                         <div class="col-md-12 mb-6">
                             <div class="chart" style="width:100%;height: 800px" id="chart7"></div>
+                            <button class="btn btn-info btn-view-more" data-toggle="modal" style="background-color:#174273;border-color:#174273"
+                                data-target="#myModal" 
+                                data-title="Captación de agua pluvial (metros de tubo para captación)"
+                                data-description="Información desglosada:"
+                                data-category="captacion_agua">
+                            Ver más
+                        </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    
+    <div class="modal fade popup" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="event-title card-title mb-0 text-center text-bold tc-gray mt-5 mb-5"></h2>
+                        <!--<p class="event-description card-text mt-5 text-justify"></p>-->
+                        
+                        <table class="table table-striped event-table">
+                            <thead>
+                                <tr>
+                                    <th>Proyecto</th>
+                                    <th>2022</th>
+                                    <th>2023</th>
+                                    <th>2024</th>
+                                </tr>
+                            </thead>
+                            <tbody class="event-table-body">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="text-center py-3">
+                    <button type="button" class="btn btn-secondary close-btn card-link" data-mdb-dismiss="modal">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 {% block otherscripts %}
     <link rel="stylesheet" href="{% static 'css/amcharts.css' %}">
     <script src="{% static 'js/amCharts/amcharts.js'%}"></script>
     <script src="{% static 'js/amCharts/serial.min.js'%}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         var BARCHARTHOME = document.getElementById('barChartHome2');
@@ -118,21 +169,21 @@
             "dataProvider": [
                 {
                     "year": 2022,
-                    "Zona foranea centro norte": 74311,
-                    "Zona 1": 117347,
-                    "Zona 2": 37808,
-                    "Zona Oriente":111576,
-                    "Zona Poniente":72850,
-                    "Zona Sureste":80
+                    "Zona foranea centro norte": 18,
+                    "Zona 1": 28,
+                    "Zona 2": 9,
+                    "Zona Oriente":27,
+                    "Zona Poniente":18,
+                    "Zona Sureste":0
                 },
                 {
                     "year": 2023,
-                    "Zona foranea centro norte": 48749,
-                    "Zona 1": 101089,
-                    "Zona 2": 31709,
-                    "Zona Oriente": 117924,
-                    "Zona Poniente":61072,
-                    "Zona Sureste":113983
+                    "Zona foranea centro norte": 10,
+                    "Zona 1": 21,
+                    "Zona 2": 7,
+                    "Zona Oriente": 25,
+                    "Zona Poniente":13,
+                    "Zona Sureste":24
                 },
                 {
                     "year": 2024,
@@ -143,14 +194,15 @@
             "valueAxes": [{
                 "stackType": "regular",
                 "axisAlpha": 0.3,
-                "gridAlpha": 0
+                "gridAlpha": 0,
+                "maximum":100
             }],
             "startDuration": 1,
             "graphs": [
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Zona foranea centro norte",
                     "type": "column",
@@ -158,9 +210,9 @@
                     "valueField": "Zona foranea centro norte"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Zona 1",
                     "type": "column",
@@ -168,9 +220,9 @@
                     "valueField": "Zona 1"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Zona 2",
                     "type": "column",
@@ -178,9 +230,9 @@
                     "valueField": "Zona 2"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Zona Oriente",
                     "type": "column",
@@ -188,9 +240,9 @@
                     "valueField": "Zona Oriente"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Zona Poniente",
                     "type": "column",
@@ -198,9 +250,9 @@
                     "valueField": "Zona Poniente"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Zona Sureste",
                     "type": "column",
@@ -246,59 +298,59 @@
             "dataProvider": [
                 {
                     "year": 2022,
-                    "Magno 26": 1080,
-                    "Magno 35": 1000,
-                    "El triangulo": 900,
-                    "Santin":1560,
-                    "Mundo E":14568,
-                    "Arboledas":1565,
-                    "Valle Dorado":83,
-                    "Aragon":3595,
+                    "Magno 26": 3,
+                    "Magno 35": 3,
+                    "El triangulo": 3,
+                    "Santin":5,
+                    "Mundo E":45,
+                    "Arboledas":5,
+                    "Valle Dorado":0,
+                    "Aragon":11,
                     "Ojos de Agua":0,
                     "Bosques":0,
-                    "Lindavista":500,
-                    "Real":200,
-                    "Del Valle":250,
-                    "Las Palmas":150,
-                    "Tuxtepec":125,
-                    "Cancun":946,
-                    "Arco Norte":1531,
-                    "Lak'in":1100,
-                    "Chac Mool":465,
-                    "Kabah":478,
-                    "Puerto Morelos":78,
-                    "Villas del Sol":122,
-                    "El Eden":115,
-                    "Petempich":839,
-                    "Puerto Aventuras":1157
+                    "Lindavista":2,
+                    "Real":1,
+                    "Del Valle":1,
+                    "Las Palmas":0,
+                    "Tuxtepec":0,
+                    "Cancun":3,
+                    "Arco Norte":5,
+                    "Lak'in":3,
+                    "Chac Mool":1,
+                    "Kabah":1,
+                    "Puerto Morelos":0,
+                    "Villas del Sol":0,
+                    "El Eden":0,
+                    "Petempich":3,
+                    "Puerto Aventuras":4
                 },
                 {
                     "year": 2023,
-                   "Magno 26": 1000,
-                    "Magno 35": 800,
-                    "El triangulo": 450,
-                    "Santin":1600,
-                    "Mundo E":14788,
-                    "Arboledas":1500,
-                    "Valle Dorado":83,
-                    "Aragon":3595,
-                    "Ojos de Agua":108,
+                   "Magno 26": 3,
+                    "Magno 35": 3,
+                    "El triangulo": 1,
+                    "Santin":5,
+                    "Mundo E":46,
+                    "Arboledas":5,
+                    "Valle Dorado":0,
+                    "Aragon":11,
+                    "Ojos de Agua":0,
                     "Bosques":0,
-                    "Lindavista":500,
-                    "Real":200,
-                    "Del Valle":250,
-                    "Las Palmas":150,
-                    "Tuxtepec":125,
-                    "Cancun":946,
-                    "Arco Norte":1531,
-                    "Lak'in":1100,
-                    "Chac Mool":465,
-                    "Kabah":478,
-                    "Puerto Morelos":78,
-                    "Villas del Sol":122,
-                    "El Eden":115,
-                    "Petempich":839,
-                    "Puerto Aventuras":1157
+                    "Lindavista":2,
+                    "Real":1,
+                    "Del Valle":1,
+                    "Las Palmas":0,
+                    "Tuxtepec":0,
+                    "Cancun":3,
+                    "Arco Norte":5,
+                    "Lak'in":3,
+                    "Chac Mool":1,
+                    "Kabah":1,
+                    "Puerto Morelos":0,
+                    "Villas del Sol":0,
+                    "El Eden":0,
+                    "Petempich":3,
+                    "Puerto Aventuras":4
                 },
                 {
                     "year": 2024,
@@ -314,9 +366,9 @@
             "startDuration": 1,
             "graphs": [
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Magno 26",
                     "type": "column",
@@ -324,9 +376,9 @@
                     "valueField": "Magno 26"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Magno 35",
                     "type": "column",
@@ -334,9 +386,9 @@
                     "valueField": "Magno 35"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "El Triángulo",
                     "type": "column",
@@ -344,9 +396,9 @@
                     "valueField": "El triangulo"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Santín",
                     "type": "column",
@@ -354,9 +406,9 @@
                     "valueField": "Santin"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Mundo E",
                     "type": "column",
@@ -364,9 +416,9 @@
                     "valueField": "Mundo E"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Arboledas",
                     "type": "column",
@@ -374,9 +426,9 @@
                     "valueField": "Arboledas"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Valle Dorado",
                     "type": "column",
@@ -384,9 +436,9 @@
                     "valueField": "Valle Dorado"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Aragón",
                     "type": "column",
@@ -394,9 +446,9 @@
                     "valueField": "Aragon"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Ojo de Agua",
                     "type": "column",
@@ -404,9 +456,9 @@
                     "valueField": "Ojo de Agua"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Lindavista",
                     "type": "column",
@@ -414,9 +466,9 @@
                     "valueField": "Lindavista"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Real",
                     "type": "column",
@@ -424,9 +476,9 @@
                     "valueField": "Real"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Del Valle",
                     "type": "column",
@@ -434,9 +486,9 @@
                     "valueField": "Del Valle"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Las Palmas",
                     "type": "column",
@@ -444,9 +496,9 @@
                     "valueField": "Las Palmas"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Tuxtepec",
                     "type": "column",
@@ -454,9 +506,9 @@
                     "valueField": "Tuxtepec"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Cancún",
                     "type": "column",
@@ -464,9 +516,9 @@
                     "valueField": "Cancun"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Arco Norte",
                     "type": "column",
@@ -474,9 +526,9 @@
                     "valueField": "Arco Norte"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Lak'in",
                     "type": "column",
@@ -484,9 +536,9 @@
                     "valueField": "Lak'in"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Chac Mool",
                     "type": "column",
@@ -494,9 +546,9 @@
                     "valueField": "Chac Mool"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Kabah",
                     "type": "column",
@@ -504,9 +556,9 @@
                     "valueField": "Kabah"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Puerto Morelos",
                     "type": "column",
@@ -514,9 +566,9 @@
                     "valueField": "Puerto Morelos"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Villas del Sol",
                     "type": "column",
@@ -524,9 +576,9 @@
                     "valueField": "Villas del Sol"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "El Edén",
                     "type": "column",
@@ -534,9 +586,9 @@
                     "valueField": "El Eden"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Petempich",
                     "type": "column",
@@ -544,9 +596,9 @@
                     "valueField": "Petempich"
                 },
                 {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
-                    "labelText": "[[value]]",
+                    "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
                     "title": "Puerto Aventuras",
                     "type": "column",
@@ -564,6 +616,54 @@
 
         });
 
+    });
+    </script>
+
+    <script>
+        $(document).on("click", ".btn-view-more", function (e) {
+            e.preventDefault();
+            let target = $(e.currentTarget);
+            
+            let title = target.data('title');
+            let description = target.data('description');
+            let category = target.data('category');
+            
+            
+            $.getJSON("/static/data/consumo_agua.json", function (data) {
+                
+                let tableBody = $("#myModal .event-table-body");
+                tableBody.empty();
+                
+                // Obtener los datos correspondientes a la categoría
+                let categoryData = data[category];
+                
+                if (categoryData) {
+                    
+                    categoryData.forEach((item) => {
+                        let row = `<tr>
+                                        <td>${item["Proyecto"]}</td>
+                                        <td>${item["2022"] || ''}</td>
+                                        <td>${item["2023"] || ''}</td>
+                                        <td>${item["2024"] || ''}</td>
+                                   </tr>`;
+                        tableBody.append(row);
+                    });
+                }
+                
+                
+                $("#myModal .event-title").text(title);
+                $("#myModal .event-description").text(description);
+                
+                
+                $("#myModal").modal('show');
+            });
+        });
+
+
+    // Manejo del botón de cerrar el modal
+    $(document).on("click", ".close-btn", function (e) {
+        e.preventDefault();
+        $("#myModal").modal('hide');
     });
     </script>
 {% endblock %}

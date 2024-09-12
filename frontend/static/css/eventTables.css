@@ -1,0 +1,19 @@
+    .event-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .event-table th, .event-table td {
+        border: 1px solid rgba(0, 0, 0, 0.2); /* Línea delgada y sutil */
+        text-align: center;
+        padding: 10px; 
+    }
+
+    .event-table th {
+        background-color: #174273; 
+        color: #fff;
+    }
+
+    .event-table tbody tr:nth-child(even) {
+        background-color: #f2f2f2; /* Color de fondo alterno para filas */
+    }
