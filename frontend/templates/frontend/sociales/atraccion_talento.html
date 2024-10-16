@@ -353,7 +353,10 @@
         let description = target.data('description');
         let category = target.data('category');
         
-        
+        $.ajaxSetup({
+            cache: false  // Desactiva el caché globalmente
+        });
+            
         $.getJSON("/static/data/atraccion_talento.json", function (data) {
             
             let tableBody = $("#myModal .event-table-body");
