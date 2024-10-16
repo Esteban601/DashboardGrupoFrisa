@@ -42,7 +42,7 @@ urlpatterns = [
     path('consumo_agua', views.consumo_agua, name='consumo_agua'),#consumo_energetico
     path('desechos_desperdicios', views.desechos_desperdicios, name='desechos_desperdicios'),#consumo_energia_renovable
     #path('reduccion_consumo_energia', views.reduccion_consumo_energia, name='reduccion_consumo_energia'),
-    path('cadena_suministro', views.cadena_suministro, name='cadena_suministro'),
+    # path('cadena_suministro', views.cadena_suministro, name='cadena_suministro'),
 
     path('atraccion_talento', views.atraccion_talento, name='atraccion_talento'),#empelados_funcion
     path('capacitacion_', views.empleados_sindicato, name='capacitacion_'),

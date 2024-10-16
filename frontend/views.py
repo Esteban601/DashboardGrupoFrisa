@@ -301,12 +301,12 @@ def desechos_desperdicios(request):
 #     return render(request, 'frontend/ambientales/reduccion_consumo_energia.html', context)
 
 
-def cadena_suministro(request):
-    context = {
-        'page': _('Cadena de suministro'),
-        'section': _('ambientales')
-    }
-    return render(request, 'frontend/ambientales/cadena_suministro.html', context)
+# def cadena_suministro(request):
+#     context = {
+#         'page': _('Cadena de suministro'),
+#         'section': _('ambientales')
+#     }
+#     return render(request, 'frontend/ambientales/cadena_suministro.html', context)
 
 
 #############################
