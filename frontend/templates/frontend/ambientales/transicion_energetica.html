@@ -540,9 +540,11 @@
             let title = target.data('title');
             let description = target.data('description');
             let category = target.data('category');
-            
-            
-            $.getJSON("/static/data/transicion_energetica.json", function (data) {
+
+            $.ajaxSetup({
+                cache: false  // Desactiva el caché globalmente
+            });
+            $.getJSON("/static/data/transicion_energetica.json?v=202410161903", function (data) {
                 
                 let tableBody = $("#myModal .event-table-body");
                 tableBody.empty();
