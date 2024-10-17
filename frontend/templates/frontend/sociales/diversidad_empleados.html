@@ -239,7 +239,9 @@
         let description = target.data('description');
         let category = target.data('category');
         
-        
+        $.ajaxSetup({
+            cache: false  // Desactiva el caché globalmente
+        });
         $.getJSON("/static/data/diversidad_empleados.json", function (data) {
             
             let tableBody = $("#myModal .event-table-body");
