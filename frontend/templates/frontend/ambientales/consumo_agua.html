@@ -19,11 +19,11 @@
                             Ver más
                         </button> 
                         </div>
+{#                        <div class="col-md-12 mb-6">#}
+{#                            <div class="chart" style="width:100%;height: 400px" id="chart5"></div>#}
+{#                        </div>#}
                         <div class="col-md-12 mb-6">
-                            <div class="chart" style="width:100%;height: 400px" id="chart5"></div>
-                        </div>
-                        <div class="col-md-12 mb-6">
-                            <div class="chart" style="width:100%;height: 800px" id="chart7"></div>
+                            <div class="chart" style="width:100%;height: 400px" id="chart7"></div>
                             <button class="btn btn-info btn-view-more" data-toggle="modal" style="background-color:#174273;border-color:#174273"
                                 data-target="#myModal" 
                                 data-title="Captación de agua pluvial (metros de tubo para captación)"
@@ -80,70 +80,70 @@
     document.addEventListener("DOMContentLoaded", function () {
         var BARCHARTHOME = document.getElementById('barChartHome2');
 
-        var chart5 = AmCharts.makeChart("chart5", {
-            "titles": [
-                {
-                    "text": "Gasto total de agua (m³)",
-                    "size": 16,
-                    "color": "#000000"
-                },
-                 {
-                     "text": "",
-                     "size": 12
-                 }
-            ],
-            "fontSize": 14,
-            "type": "serial",
-            "addClassNames": true,
-            "theme": "none",
-            "colors": ["#8EA043", "#6298C2"],
-            "balloon": {
-                "adjustBorderColor": false,
-                "horizontalPadding": 10,
-                "verticalPadding": 8,
-                "color": "#ffffff"
-            },
-            "dataProvider": [
-                {
-                "year": "2022",
-                "percent":413972,
-                },
-                {
-                "year": "2023",
-                "percent":474526,
-                },
-                {
-                "year": "2024",
-                "percent":0,
-                }
-            ],
-            "valueAxes": [{
-                "axisAlpha": 0,
-                "position": "left",
-                "gridAlpha": 0,
-                "labelsEnabled": false,
-                "minimum": 0
-            }],
-            "startDuration": 1,
-            "graphs": [{
-                "balloonText": "<span style='font-size:15px;'>[[value]]</span>",
-                "fillAlphas": 1,
-                "title": "Efectivo / Activos Totales",
-                "type": "column",
-                "valueField": "percent",
-                "labelText": "[[value]]"
-            }],
-            "categoryField": "year",
-            "categoryAxis": {
-                "gridPosition": "start",
-                "axisAlpha": .5,
-                "tickLength": 0,
-                "gridAlpha": 0
-            },
-            "export": {
-                "enabled": true
-            }
-        });
+        {#var chart5 = AmCharts.makeChart("chart5", {#}
+        {#    "titles": [#}
+        {#        {#}
+        {#            "text": "Gasto total de agua (m³)",#}
+        {#            "size": 16,#}
+        {#            "color": "#000000"#}
+        {#        },#}
+        {#         {#}
+        {#             "text": "",#}
+        {#             "size": 12#}
+        {#         }#}
+        {#    ],#}
+        {#    "fontSize": 14,#}
+        {#    "type": "serial",#}
+        {#    "addClassNames": true,#}
+        {#    "theme": "none",#}
+        {#    "colors": ["#8EA043", "#6298C2"],#}
+        {#    "balloon": {#}
+        {#        "adjustBorderColor": false,#}
+        {#        "horizontalPadding": 10,#}
+        {#        "verticalPadding": 8,#}
+        {#        "color": "#ffffff"#}
+        {#    },#}
+        {#    "dataProvider": [#}
+        {#        {#}
+        {#        "year": "2022",#}
+        {#        "percent":413972,#}
+        {#        },#}
+        {#        {#}
+        {#        "year": "2023",#}
+        {#        "percent":474526,#}
+        {#        },#}
+        {#        {#}
+        {#        "year": "2024",#}
+        {#        "percent":0,#}
+        {#        }#}
+        {#    ],#}
+        {#    "valueAxes": [{#}
+        {#        "axisAlpha": 0,#}
+        {#        "position": "left",#}
+        {#        "gridAlpha": 0,#}
+        {#        "labelsEnabled": false,#}
+        {#        "minimum": 0#}
+        {#    }],#}
+        {#    "startDuration": 1,#}
+        {#    "graphs": [{#}
+        {#        "balloonText": "<span style='font-size:15px;'>[[value]]</span>",#}
+        {#        "fillAlphas": 1,#}
+        {#        "title": "Efectivo / Activos Totales",#}
+        {#        "type": "column",#}
+        {#        "valueField": "percent",#}
+        {#        "labelText": "[[value]]"#}
+        {#    }],#}
+        {#    "categoryField": "year",#}
+        {#    "categoryAxis": {#}
+        {#        "gridPosition": "start",#}
+        {#        "axisAlpha": .5,#}
+        {#        "tickLength": 0,#}
+        {#        "gridAlpha": 0#}
+        {#    },#}
+        {#    "export": {#}
+        {#        "enabled": true#}
+        {#    }#}
+        {# });#}
 
         
         var chart6 = AmCharts.makeChart("chart6", {
@@ -187,8 +187,12 @@
                 },
                 {
                     "year": 2024,
-                    "hombres": 0,
-                    "mujeres": 0
+                    "Zona foranea centro norte": 0,
+                    "Zona 1": 0,
+                    "Zona 2": 0,
+                    "Zona Oriente": 0,
+                    "Zona Poniente":0,
+                    "Zona Sureste":0
                 }
             ],
             "valueAxes": [{
@@ -279,12 +283,7 @@
                 }
             ],
             "addClassNames": true,
-            "colors": [
-                "#FF8C48", "#1C66B2", "#FCAA81", "#3DADF2", "#C5494C", "#88BEE2", 
-                "#D6747B", "#2A8BD3", "#F9CEBB", "#184374", "#F2B6C1", "#0F2842", 
-                "#A4B05F", "#6298C2", "#CAD188", "#305982", "#F0F2C2", "#97A3AF", 
-                "#BAE2F7", "#373F47", "#BACAD8", "#4D5459", "#DFEAF2", "#6D7377"
-                    ],
+            "colors": ["#184374", "#FF8C48", "#A4B05F", "#C5494C", "#1C66B2", "#6298C2"],
             "type": "serial",
             "theme": "none",
             "legend": {
@@ -298,64 +297,30 @@
             "dataProvider": [
                 {
                     "year": 2022,
-                    "Magno 26": 3,
-                    "Magno 35": 3,
-                    "El triangulo": 3,
-                    "Santin":5,
-                    "Mundo E":45,
-                    "Arboledas":5,
-                    "Valle Dorado":0,
-                    "Aragon":11,
-                    "Ojos de Agua":0,
-                    "Bosques":0,
-                    "Lindavista":2,
-                    "Real":1,
-                    "Del Valle":1,
-                    "Las Palmas":0,
-                    "Tuxtepec":0,
-                    "Cancun":3,
-                    "Arco Norte":5,
-                    "Lak'in":3,
-                    "Chac Mool":1,
-                    "Kabah":1,
-                    "Puerto Morelos":0,
-                    "Villas del Sol":0,
-                    "El Eden":0,
-                    "Petempich":3,
-                    "Puerto Aventuras":4
+                    "Zona foránea centro norte": 4,
+                    "Zona 1": 45,
+                    "Zona 2": 5,
+                    "Zona Oriente": 11,
+                    "Zona Poniente": 14,
+                    "Zona Sureste": 21
                 },
                 {
                     "year": 2023,
-                   "Magno 26": 3,
-                    "Magno 35": 3,
-                    "El triangulo": 1,
-                    "Santin":5,
-                    "Mundo E":46,
-                    "Arboledas":5,
-                    "Valle Dorado":0,
-                    "Aragon":11,
-                    "Ojos de Agua":0,
-                    "Bosques":0,
-                    "Lindavista":2,
-                    "Real":1,
-                    "Del Valle":1,
-                    "Las Palmas":0,
-                    "Tuxtepec":0,
-                    "Cancun":3,
-                    "Arco Norte":5,
-                    "Lak'in":3,
-                    "Chac Mool":1,
-                    "Kabah":1,
-                    "Puerto Morelos":0,
-                    "Villas del Sol":0,
-                    "El Eden":0,
-                    "Petempich":3,
-                    "Puerto Aventuras":4
+                    "Zona foránea centro norte": 4,
+                    "Zona 1": 46,
+                    "Zona 2": 5,
+                    "Zona Oriente": 12,
+                    "Zona Poniente": 12,
+                    "Zona Sureste": 21
                 },
                 {
                     "year": 2024,
-                    "hombres": 0,
-                    "mujeres": 0
+                    "Zona foránea centro norte": 0,
+                    "Zona 1": 0,
+                    "Zona 2": 0,
+                    "Zona Oriente": 0,
+                    "Zona Poniente": 0,
+                    "Zona Sureste": 0
                 }
             ],
             "valueAxes": [{
@@ -370,240 +335,60 @@
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
-                    "title": "Magno 26",
+                    "title": "Zona foránea centro norte",
                     "type": "column",
                     "color": "#000000",
-                    "valueField": "Magno 26"
+                    "valueField": "Zona foránea centro norte"
                 },
                 {
                     "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
-                    "title": "Magno 35",
+                    "title": "Zona 1",
                     "type": "column",
                     "color": "#000000",
-                    "valueField": "Magno 35"
+                    "valueField": "Zona 1"
                 },
                 {
                     "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
-                    "title": "El Triángulo",
+                    "title": "Zona 2",
                     "type": "column",
                     "color": "#000000",
-                    "valueField": "El triangulo"
+                    "valueField": "Zona 2"
                 },
                 {
                     "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
-                    "title": "Santín",
+                    "title": "Zona Oriente",
                     "type": "column",
                     "color": "#000000",
-                    "valueField": "Santin"
+                    "valueField": "Zona Oriente"
                 },
                 {
                     "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
-                    "title": "Mundo E",
+                    "title": "Zona Poniente",
                     "type": "column",
                     "color": "#000000",
-                    "valueField": "Mundo E"
+                    "valueField": "Zona Poniente"
                 },
                 {
                     "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
                     "fillAlphas": 0.8,
                     "labelText": "[[value]]%",
                     "lineAlpha": 0.3,
-                    "title": "Arboledas",
+                    "title": "Zona Sureste",
                     "type": "column",
                     "color": "#000000",
-                    "valueField": "Arboledas"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Valle Dorado",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Valle Dorado"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Aragón",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Aragon"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Ojo de Agua",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Ojo de Agua"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Lindavista",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Lindavista"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Real",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Real"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Del Valle",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Del Valle"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Las Palmas",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Las Palmas"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Tuxtepec",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Tuxtepec"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Cancún",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Cancun"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Arco Norte",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Arco Norte"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Lak'in",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Lak'in"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Chac Mool",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Chac Mool"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Kabah",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Kabah"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Puerto Morelos",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Puerto Morelos"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Villas del Sol",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Villas del Sol"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "El Edén",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "El Eden"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Petempich",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Petempich"
-                },
-                {
-                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]%</b></span>",
-                    "fillAlphas": 0.8,
-                    "labelText": "[[value]]%",
-                    "lineAlpha": 0.3,
-                    "title": "Puerto Aventuras",
-                    "type": "column",
-                    "color": "#000000",
-                    "valueField": "Puerto Aventuras"
+                    "valueField": "Zona Sureste"
                 }
             ],
             "categoryField": "year",
@@ -629,6 +414,9 @@
             let category = target.data('category');
             
             
+            $.ajaxSetup({
+                cache: false  // Desactiva el caché globalmente
+            });
             $.getJSON("/static/data/consumo_agua.json", function (data) {
                 
                 let tableBody = $("#myModal .event-table-body");
