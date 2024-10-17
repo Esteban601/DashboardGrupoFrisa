@@ -345,12 +345,12 @@ def accidentes_laborales(request):
     }
     return render(request, 'frontend/sociales/salud_seguridad.html', context)
 
-def salud_seguridad_laboral(request):
-    context ={
-        'page': _('Salud y seguridad laboral'),
-        'section': _('sociales')
-    }
-    return render(request, 'frontend/sociales/salud_seguridad.html', context)
+# def salud_seguridad_laboral(request):
+#     context ={
+#         'page': _('Salud y seguridad laboral'),
+#         'section': _('sociales')
+#     }
+#     return render(request, 'frontend/sociales/salud_seguridad.html', context)
 #############################
 # gobierno_corporativo
 #############################

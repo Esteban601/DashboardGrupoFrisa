@@ -49,7 +49,7 @@ urlpatterns = [
     path('empleados_funcion', views.atraccion_talento, name='empleados_funcion'),
     path('diversidad_empleados', views.diversidad_empleados, name='diversidad_empleados'),#satisfaccion_empleados
    # path('capacitacion', views.empleados_sindicato, name='capacitacion'),
-    path('salud_seguridad_laboral', views.salud_seguridad_laboral, name='salud_seguridad_laboral'),
+   #  path('salud_seguridad_laboral', views.salud_seguridad_laboral, name='salud_seguridad_laboral'),
 
     path('estructura_gobierno', views.estructura_gobierno, name='estructura_gobierno'),
     path('etica_anti', views.etica_anti, name='etica_anti'),
